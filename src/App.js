@@ -1,24 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import Cards from './сomponents/Cards';
+import { createTheme, ThemeProvider } from "@mui/material";
+import Footer from './сomponents/Footer';
+import Header from './сomponents/Header';
 
 function App() {
+
+  /* For theme customization */
+  const theme = createTheme({
+    palette: {
+
+    },
+    components: {
+      MuiTypography: {
+        variants: [
+          {
+            props: {
+              variant: "body3"
+            },
+            style: {
+              fontSize: 9
+            }
+          }
+        ]
+      }
+    }
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Header />
+      <Cards />
+      <Footer />
+    </ThemeProvider>
   );
 }
 
