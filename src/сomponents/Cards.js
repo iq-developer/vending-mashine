@@ -9,11 +9,15 @@ const Cards = () => {
 
             {cards.map((card) => (
               <Grid item key={card.id} xs={6} sm={4} md={3} lg={2}>
-                <Card style={{ backgroundImage: `url(${card.img})`, borderRadius: "20px"}}>
+                <Card sx={{
+                  backgroundImage: `url(${card.img})`,
+                  backgroundSize: "50%",
+                  borderRadius: "20px",
+                }}>
                   <CardContent sx={{
                     textAlign: "center",
                     backgroundColor: "rgba(255,255,255,0.9)",
-                    marginTop: "50px",
+                    // marginTop: "30px",
                     "&:hover": {
                       background: "rgba(255,255,255,0.5)",
                       cursor: "pointer"
@@ -22,10 +26,10 @@ const Cards = () => {
                       paddingBottom: "1px",
                     }
                   }}>
-                    <Typography variant="h5" gutterBottom fontWeight="700" color="#353535">
+                    <Typography variant="h5" gutterBottom  color="#656565">
                       {card.name}
                     </Typography>
-                    <Typography variant="h3" gutterBottom fontWeight="700" color="#353535">
+                    <Typography variant="h4" gutterBottom fontWeight="700" color="#353535">
                       {card.price}
                     </Typography>
                   </CardContent>

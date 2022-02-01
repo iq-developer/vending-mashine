@@ -1,9 +1,11 @@
-import { Box, Toolbar, Typography } from "@mui/material";
+import { Box, Toolbar, Typography, Button } from "@mui/material";
+import Coin from "./Coin";
 
 
 const Footer = () => {
 
   return (
+    <>
     <Box
       sx={{
       color: "#fff",
@@ -15,11 +17,34 @@ const Footer = () => {
       right: 0
     }}>
       <Toolbar>
-        <Typography variant="h6" color="inherit" noWrap>
+        <Typography
+          variant="h6"
+          color="inherit"
+          noWrap
+        >
           Footer
         </Typography>
       </Toolbar>
+
+      <Toolbar sx={{
+        backgroundColor: 'primary.light',
+      }}>
+        <Typography
+          variant="h6"
+          color="inherit"
+          p={5}
+          noWrap
+        >
+        Your coins
+        </Typography>
+
+        <Coin />  
+        
+      </Toolbar>
     </Box>
+
+
+    </>
   );
 }
 
