@@ -16,13 +16,76 @@ const Footer = () => {
       left: 0,
       right: 0
     }}>
+      <Toolbar sx={{
+        backgroundColor: 'success.main',
+      }}>
+        <Typography
+          variant="h6"
+          color="inherit"
+          pl={5}
+          noWrap
+        >
+          Deposited:
+        </Typography>
+        <Typography
+          variant="h6"
+          color="inherit"
+          pl={5}
+          noWrap
+        >
+          £ 0.50
+        </Typography>
+        <Typography
+          variant="h6"
+          color="inherit"
+          pl={5}
+          noWrap
+        >
+          1 coins
+        </Typography>
+      </Toolbar>
+
+      <Toolbar sx={{
+        backgroundColor: 'success.light',
+      }}>
+        <Typography
+          variant="h6"
+          color="inherit"
+          p={5}
+          noWrap
+        >
+        Dep. coins:
+        </Typography >
+
+        <Coin />  
+        
+      </Toolbar>
+
+
       <Toolbar>
         <Typography
           variant="h6"
           color="inherit"
+          pl={5}
           noWrap
         >
-          Footer
+          Your balance:
+        </Typography>
+        <Typography
+          variant="h6"
+          color="inherit"
+          pl={5}
+          noWrap
+        >
+          £ 5.50
+        </Typography>
+        <Typography
+          variant="h6"
+          color="inherit"
+          pl={5}
+          noWrap
+        >
+          5 coins
         </Typography>
       </Toolbar>
 
@@ -35,7 +98,7 @@ const Footer = () => {
           p={5}
           noWrap
         >
-        Your coins
+        Your coins:
         </Typography>
 
         <Coin />  

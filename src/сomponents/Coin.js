@@ -15,7 +15,8 @@ const Coin = () => {
           disabled
           sx={{
             borderRadius: "40px",
-            padding: "20px"
+            padding: "20px",
+            margin: "0 5px"
           }}
           key={index}
         >
