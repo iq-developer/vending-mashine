@@ -1,5 +1,5 @@
 import { Typography, Grid, Card, CardContent, Container } from "@mui/material";
-import cards from "../data"
+import cards from "../data.json"
 
 const Cards = () => {
   return (
