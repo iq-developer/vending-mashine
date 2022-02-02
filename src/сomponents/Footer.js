@@ -1,4 +1,5 @@
 import { Box, Toolbar, Typography, Button } from "@mui/material";
+import { textAlign } from "@mui/system";
 import Coin from "./Coin";
 
 
@@ -14,7 +15,7 @@ const Footer = () => {
       top: 'auto',
       bottom: 0,
       left: 0,
-      right: 0
+      right: 0,
     }}>
       <Toolbar sx={{
         backgroundColor: 'success.main',
@@ -23,42 +24,18 @@ const Footer = () => {
           variant="h6"
           color="inherit"
           pl={5}
+          m="0 auto"
           noWrap
         >
-          Deposited:
+          Deposited: 1 coin £ 0.50
         </Typography>
-        <Typography
-          variant="h6"
-          color="inherit"
-          pl={5}
-          noWrap
-        >
-          £ 0.50
-        </Typography>
-        <Typography
-          variant="h6"
-          color="inherit"
-          pl={5}
-          noWrap
-        >
-          1 coins
-        </Typography>
+
       </Toolbar>
 
       <Toolbar sx={{
         backgroundColor: 'success.light',
       }}>
-        <Typography
-          variant="h6"
-          color="inherit"
-          p={5}
-          noWrap
-        >
-        Dep. coins:
-        </Typography >
-
-        <Coin />  
-        
+        <Coin m="0 auto" />   
       </Toolbar>
 
 
@@ -67,42 +44,18 @@ const Footer = () => {
           variant="h6"
           color="inherit"
           pl={5}
+          m="0 auto"
           noWrap
         >
-          Your balance:
+          Your balance:  5 coins £ 5.50
         </Typography>
-        <Typography
-          variant="h6"
-          color="inherit"
-          pl={5}
-          noWrap
-        >
-          £ 5.50
-        </Typography>
-        <Typography
-          variant="h6"
-          color="inherit"
-          pl={5}
-          noWrap
-        >
-          5 coins
-        </Typography>
+
       </Toolbar>
 
       <Toolbar sx={{
         backgroundColor: 'primary.light',
       }}>
-        <Typography
-          variant="h6"
-          color="inherit"
-          p={5}
-          noWrap
-        >
-        Your coins:
-        </Typography>
-
         <Coin />  
-        
       </Toolbar>
     </Box>
 

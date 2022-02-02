@@ -1,18 +1,15 @@
-import { useState } from "react";
 import { Typography, Grid, Card, CardContent, CardActionArea } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { toggleTask }  from "../store/actions";
 
 const SingleCard = ({card}) => {
-
-  const [cardIsSelected, setCardIsSelected] = useState(false);
-
-  const holderCardClick = (event) => {
-    setCardIsSelected(!cardIsSelected);
-  }
-  
+  const { id, isSelected } = card;
+  const dispatch = useDispatch();
+ 
   return (  
       <Grid item key={card.id} xs={6} sm={4} md={3} lg={2}>
 
-        <CardActionArea onClick={holderCardClick}> 
+        <CardActionArea onClick={() => dispatch(toggleTask(id))}> 
           <Card
           sx={{
             backgroundImage: `url(${card.img})`,
@@ -23,7 +20,7 @@ const SingleCard = ({card}) => {
             <CardContent
             sx={{
               textAlign: "center",
-              backgroundColor: cardIsSelected ? "rgba(25,118,210,0.5);" : "rgba(255,255,255,0.9)",
+              backgroundColor: isSelected ? "rgba(25,118,210,0.5);" : "rgba(255,255,255,0.9)",
               // marginTop: "30px",
               "&:hover": {
                 backgroundColor: "rgba(255,255,255,0.5)",
@@ -32,12 +29,14 @@ const SingleCard = ({card}) => {
               "&:last-child": {
                 paddingBottom: "1px",
               }
-            }}>
+            }}
+            id={card.id}
+            >
               <Typography
                 id={card.id}
                 variant="h5"
                 gutterBottom
-                color={cardIsSelected ? "#fff" : "#656565"}
+                color={isSelected ? "#fff" : "#656565"}
               >
                 {card.name}
               </Typography>
@@ -46,7 +45,7 @@ const SingleCard = ({card}) => {
                 variant="h4"
                 gutterBottom
                 fontWeight="700" 
-                color={cardIsSelected ? "#fff" : "#353535"}
+                color={isSelected ? "#fff" : "#353535"}
               >
                 {card.price}
               </Typography>

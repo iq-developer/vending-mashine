@@ -16,7 +16,7 @@ const Coin = () => {
           sx={{
             borderRadius: "40px",
             padding: "20px",
-            margin: "0 5px"
+            margin: "10px",
           }}
           key={index}
         >
