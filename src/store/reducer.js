@@ -1,9 +1,4 @@
-// state = {
-//   id: 1,
-//   selected: true
-// }
-
-import cards from "../data.json"
+import cards from "../data/items.json"
 
 export default function reducer(state = cards, action) {
 

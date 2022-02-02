@@ -1,4 +1,4 @@
-import { Box, Toolbar, Typography, Button } from "@mui/material";
+import { Box, Toolbar, Typography, Button,  Container } from "@mui/material";
 import { textAlign } from "@mui/system";
 import Coin from "./Coin";
 
@@ -10,52 +10,79 @@ const Footer = () => {
     <Box
       sx={{
       color: "#fff",
-      backgroundColor: 'primary.dark',
       position: 'fixed',
       top: 'auto',
       bottom: 0,
       left: 0,
       right: 0,
     }}>
+
       <Toolbar sx={{
         backgroundColor: 'success.main',
       }}>
-        <Typography
-          variant="h6"
-          color="inherit"
-          pl={5}
-          m="0 auto"
-          noWrap
-        >
-          Deposited: 1 coin £ 0.50
-        </Typography>
-
+      <Container>
+        <Box sx={{
+          display: "flex",
+          width: "300px",
+          margin: "0 auto",
+          fontSize: "20px"
+        }}>
+          <Box width="130px">
+            Deposited: 
+          </Box>
+          <Box width="90px">
+            5 coins
+          </Box>
+          <Box width="80px">
+            £ 5.50
+          </Box>     
+        </Box>
+      </Container>
       </Toolbar>
 
       <Toolbar sx={{
         backgroundColor: 'success.light',
       }}>
-        <Coin m="0 auto" />   
+        <Container sx={{
+          textAlign: "center"
+        }}>
+          <Coin/>
+        </Container>
       </Toolbar>
 
-
-      <Toolbar>
-        <Typography
-          variant="h6"
-          color="inherit"
-          pl={5}
-          m="0 auto"
-          noWrap
-        >
-          Your balance:  5 coins £ 5.50
-        </Typography>
-
+      <Toolbar sx={{
+          backgroundColor: 'primary.dark',
+          display: "flex",
+          justifyContent: "center"
+        }}>
+        <Container>
+          <Box sx={{
+            display: "flex",
+            width: "300px",
+            margin: "0 auto",
+            fontSize: "20px"
+          }}>
+            <Box width="130px">
+              Your money: 
+            </Box>
+            <Box width="90px">
+              5 coins
+            </Box>
+            <Box width="80px">
+              £ 5.50
+            </Box>     
+          </Box>
+        </Container>
       </Toolbar>
 
       <Toolbar sx={{
         backgroundColor: 'primary.light',
       }}>
-        <Coin />  
+        <Container sx={{
+          textAlign: "center"
+        }}>
+          <Coin/>
+        </Container> 
       </Toolbar>
     </Box>
 
