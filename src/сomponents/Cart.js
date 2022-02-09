@@ -1,24 +1,20 @@
-import { ShoppingCart } from "@mui/icons-material"
-import { IconButton, Box} from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { Box } from "@mui/material";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
 
-  const dispatch = useDispatch();
   const items = useSelector(state => state);
-  //const [disabled, setDisabled] = useState(true); 
 
   return (
     <>
-      <Box width="130px">
-        Deposited: 
+      <Box width="100px">
+        Selected: 
       </Box>
-      <Box width="90px">
-        5 coins
+      <Box width="100px">
+        5 items
       </Box>
-      <Box width="80px">
-        £ 5.50
+      <Box width="150px">
+        Sum: £5.50
       </Box>
     </>
   )

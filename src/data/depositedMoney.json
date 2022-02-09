@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "denomination": 1,
+    "quantity": 0,
+    "isPound": false
+  },
+  {
+    "id": 2,
+    "denomination": 2,
+    "quantity": 0,
+    "isPound": false
+  },
+  {
+    "id": 3,
+    "denomination": 5,
+    "quantity": 0,
+    "isPound": false
+  },
+  {
+    "id": 4,
+    "denomination": 10,
+    "quantity": 3,
+    "isPound": false
+  },
+  {
+    "id": 5,
+    "denomination": 20,
+    "quantity": 0,
+    "isPound": false
+  },
+  {
+    "id": 6,
+    "denomination": 1,
+    "quantity": 0,
+    "isPound": true
+  },
+  {
+    "id": 7,
+    "denomination": 2,
+    "quantity": 2,
+    "isPound": true
+  }
+]

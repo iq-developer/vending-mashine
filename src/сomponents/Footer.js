@@ -1,12 +1,14 @@
-import { Box, Toolbar, Typography, Button,  Container } from "@mui/material";
-import { textAlign } from "@mui/system";
-import Coins from "./Coins";
+import { Box } from "@mui/material";
+import Panel from "./Panel";
+import { useSelector } from "react-redux";
 
 
 const Footer = () => {
 
+  const coins = useSelector(state => state.coins);
+  const depositedCoins = useSelector(state => state.depositedCoins);
+
   return (
-    <>
     <Box
       sx={{
       color: "#fff",
@@ -16,82 +18,23 @@ const Footer = () => {
       left: 0,
       right: 0,
     }}>
-
-      <Toolbar sx={{
-        backgroundColor: 'success.main',
-      }}>
-      <Container>
-        <Box sx={{
-          display: "flex",
-          width: "300px",
-          margin: "0 auto",
-          fontSize: "20px"
-        }}>
-          <Box width="130px">
-            Deposited: 
-          </Box>
-          <Box width="90px">
-            5 coins
-          </Box>
-          <Box width="80px">
-            £ 5.50
-          </Box>     
-        </Box>
-      </Container>
-      </Toolbar>
-
-      <Toolbar sx={{
-        backgroundColor: 'success.light',
-      }}>
-        <Container sx={{
-          textAlign: "center",
-          display: "flex",
-          justifyContent: "center",
-        }}>
-          <Coins/>
-        </Container>
-      </Toolbar>
-
-      <Toolbar sx={{
-          backgroundColor: 'primary.dark',
-          display: "flex",
-          justifyContent: "center"
-        }}>
-        <Container>
-          <Box sx={{
-            display: "flex",
-            width: "300px",
-            margin: "0 auto",
-            fontSize: "20px"
-          }}>
-            <Box width="130px">
-              Your money: 
-            </Box>
-            <Box width="90px">
-              5 coins
-            </Box>
-            <Box width="80px">
-              £ 5.50
-            </Box>     
-          </Box>
-        </Container>
-      </Toolbar>
-
-      <Toolbar sx={{
-        backgroundColor: 'primary.light',
-      }}>
-        <Container sx={{
-          textAlign: "center",
-          display: "flex",
-          justifyContent: "center",
-        }}>
-          <Coins/>
-        </Container> 
-      </Toolbar>
+      <Panel
+        Title="Deposited"
+        topBgColor="success.main"
+        bottomBgColor="success.light"
+        coinsQuantity="5"
+        moneySum="30"
+        coinsData={depositedCoins}
+      />
+      <Panel
+        Title="Your money"
+        topBgColor="primary.dark"
+        bottomBgColor="primary.light"
+        coinsQuantity="10"
+        moneySum="40"
+        coinsData={coins}
+      />
     </Box>
-
-
-    </>
   );
 }
 
