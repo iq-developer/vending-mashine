@@ -13,15 +13,15 @@ const Header = () => {
     <Box
       sx={{
       color: "#fff",
-      position: 'fixed',
+      position: "fixed",
       top: 0,
-      bottom: 'auto',
+      bottom: "auto",
       left: 0,
       right: 0,
     }}>
 
       <Toolbar sx={{
-        backgroundColor: 'primary.main',
+        backgroundColor: "primary.main",
       }}>
       <Container>
         <Box sx={{

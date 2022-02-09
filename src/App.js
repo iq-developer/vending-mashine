@@ -1,8 +1,8 @@
-import './App.css';
-import Cards from './сomponents/Cards';
+import "./App.css";
+import Cards from "./сomponents/Cards";
 import { createTheme, ThemeProvider } from "@mui/material";
-import Footer from './сomponents/Footer';
-import Header from './сomponents/Header';
+import Footer from "./сomponents/Footer";
+import Header from "./сomponents/Header";
 
 function App() {
 

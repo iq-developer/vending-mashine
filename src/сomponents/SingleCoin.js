@@ -8,6 +8,7 @@ const SingleCoin = ({coins}) => {
       return (
         <Box
           margin="20px 10px"
+          key={item.id}
           >
           <Badge 
             badgeContent={item.quantity}
@@ -23,11 +24,10 @@ const SingleCoin = ({coins}) => {
                 padding: "20px",
                 color: "#000"
               }}
-              key={index}
             >
-              {item.isPound ? '£' : ''}
+              {item.isPound ? "£" : ""}
               {item.denomination}
-              {item.isPound ? '' : 'p'}
+              {item.isPound ? "" : "p"}
             </Button>
           </Badge>
         </Box>
