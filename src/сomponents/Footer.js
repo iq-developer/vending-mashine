@@ -1,6 +1,6 @@
 import { Box, Toolbar, Typography, Button,  Container } from "@mui/material";
 import { textAlign } from "@mui/system";
-import Coin from "./Coin";
+import Coins from "./Coins";
 
 
 const Footer = () => {
@@ -44,9 +44,11 @@ const Footer = () => {
         backgroundColor: 'success.light',
       }}>
         <Container sx={{
-          textAlign: "center"
+          textAlign: "center",
+          display: "flex",
+          justifyContent: "center",
         }}>
-          <Coin/>
+          <Coins/>
         </Container>
       </Toolbar>
 
@@ -79,9 +81,11 @@ const Footer = () => {
         backgroundColor: 'primary.light',
       }}>
         <Container sx={{
-          textAlign: "center"
+          textAlign: "center",
+          display: "flex",
+          justifyContent: "center",
         }}>
-          <Coin/>
+          <Coins/>
         </Container> 
       </Toolbar>
     </Box>
