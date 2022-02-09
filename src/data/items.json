@@ -1,11 +1,5 @@
 [
   {
-    "id": 0,
-    "name": "Apple",
-    "price": "0.30",
-    "img": "https://cdn.pixabay.com/photo/2021/10/25/14/45/apples-6741164__340.jpg"
-  },
-  {
     "id": 1,
     "name": "Orange",
     "price": "1.23",
@@ -143,5 +137,11 @@
     "name": "Mango",
     "price": "7.50",
     "img": "https://cdn.pixabay.com/photo/2016/04/10/15/13/mangoes-1320111__340.jpg"
+  },
+  {
+    "id": 24,
+    "name": "Apple",
+    "price": "0.30",
+    "img": "https://cdn.pixabay.com/photo/2021/10/25/14/45/apples-6741164__340.jpg"
   }
 ]

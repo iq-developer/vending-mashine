@@ -30,7 +30,7 @@ const Header = () => {
           margin: "0 auto",
           fontSize: "20px"
         }}>
-          {items.find(item => item.isSelected) ? <Cart/> : <h3>Vending mashine</h3>}
+          {items.cards.find(item => item.isSelected) ? <Cart/> : <h3>Vending mashine</h3>}
         </Box>
       </Container>
       </Toolbar>

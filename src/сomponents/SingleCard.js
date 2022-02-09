@@ -1,6 +1,6 @@
 import { Typography, Grid, Card, CardContent, CardActionArea } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { toggleTask }  from "../store/actions";
+import { toggleItem }  from "../store/actions";
 
 const SingleCard = ({card}) => {
   const { id, isSelected } = card;
@@ -9,7 +9,7 @@ const SingleCard = ({card}) => {
   return (  
       <Grid item key={card.id} xs={6} sm={4} md={3} lg={2}>
 
-        <CardActionArea onClick={() => dispatch(toggleTask(id))}> 
+        <CardActionArea onClick={() => dispatch(toggleItem(id))}> 
           <Card
           sx={{
             backgroundImage: `url(${card.img})`,
@@ -21,7 +21,7 @@ const SingleCard = ({card}) => {
             sx={{
               textAlign: "center",
               backgroundColor: isSelected ? "rgba(25,118,210,0.5);" : "rgba(255,255,255,0.9)",
-              // marginTop: "30px",
+              // marginTop: "30px", // uncomment to display image on card
               "&:hover": {
                 backgroundColor: "rgba(255,255,255,0.5)",
                 cursor: "pointer"

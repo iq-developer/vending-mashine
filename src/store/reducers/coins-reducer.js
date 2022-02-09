@@ -1,12 +1,10 @@
-import cards from "../data/items.json"
+import userMoney from "../../data/userMoney.json"
 
-export default function reducer(state = cards, action) {
-
-  console.log('action.payload:', action.payload);
+export default function reducer(state = userMoney, action) {
 
   switch (action.type) {
 
-    case 'TASK_TOGGLE':
+    case 'ITEM_TOGGLE':
       return state.map(item => {
         if (item.id === action.payload.id)
           return { ...item, isSelected: !item.isSelected }

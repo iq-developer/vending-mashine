@@ -10,7 +10,7 @@ const Cards = () => {
     <main className="main">
       <Container maxWidth="lg">
         <Grid container spacing={4} pt={10}>
-            {items.map((item, index) => (
+            {items.cards.map((item, index) => (
               <SingleCard card={item} key={index} />
             ))}   
         </Grid>

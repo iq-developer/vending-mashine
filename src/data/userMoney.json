@@ -1,32 +1,37 @@
 [
   {
     "denomination": 1,
-    "quantity": 0
+    "quantity": 2,
+    "isPound": false
   },
   {
     "denomination": 2,
-    "quantity": 4
+    "quantity": 4,
+    "isPound": false
   },
   {
     "denomination": 5,
-    "quantity": 6
+    "quantity": 6,
+    "isPound": false
   },
   {
     "denomination": 10,
-    "quantity": 8
+    "quantity": 3,
+    "isPound": false
   },
   {
     "denomination": 20,
-    "quantity": 2
+    "quantity": 5,
+    "isPound": false
   },
   {
-    "denomination": 100,
-    "quantity": 2,
+    "denomination": 1,
+    "quantity": 7,
     "isPound": true
   },
   {
-    "denomination": 200,
-    "quantity": 2,
+    "denomination": 2,
+    "quantity": 1,
     "isPound": true
   }
 ]
