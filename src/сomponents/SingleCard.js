@@ -1,6 +1,7 @@
 import { Typography, Grid, Card, CardContent, CardActionArea } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { toggleItem }  from "../store/actions";
+import color from "../color";
 
 const SingleCard = ({card}) => {
   const { id, isSelected } = card;
@@ -20,10 +21,10 @@ const SingleCard = ({card}) => {
             <CardContent
             sx={{
               textAlign: "center",
-              backgroundColor: isSelected ? "rgba(25,118,210,0.5);" : "rgba(255,255,255,0.9)",
-              // marginTop: "30px", // uncomment to display image on card
+              backgroundColor: isSelected ? color("blue", 0.5) : color("white", 0.9),
+              // marginTop: "30px", // uncomment to display image part in card
               "&:hover": {
-                backgroundColor: "rgba(255,255,255,0.5)",
+                backgroundColor: color("white", 0.5),
                 cursor: "pointer"
               },
               "&:last-child": {
@@ -36,7 +37,7 @@ const SingleCard = ({card}) => {
                 id={card.id}
                 variant="h5"
                 gutterBottom
-                color={isSelected ? "#fff" : "#656565"}
+                color={isSelected ? color("white") : color("gray")}
               >
                 {card.name}
               </Typography>
@@ -45,7 +46,7 @@ const SingleCard = ({card}) => {
                 variant="h4"
                 gutterBottom
                 fontWeight="700" 
-                color={isSelected ? "#fff" : "#353535"}
+                color={isSelected ? color("white") : color("darkgray")}
               >
                 {card.price}
               </Typography>
