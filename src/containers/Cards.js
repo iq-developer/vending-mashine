@@ -1,5 +1,5 @@
 import { Grid, Container} from "@mui/material";
-import SingleCard from "./SingleCard";
+import SingleCard from "../сomponents/SingleCard";
 import { useSelector } from "react-redux";
 
 const Cards = () => {

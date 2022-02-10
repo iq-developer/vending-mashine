@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import SingleCoin from "./SingleCoin";
+import SingleCoin from "../сomponents/SingleCoin";
 
 const Coins = ({coinsData}) => {
 
