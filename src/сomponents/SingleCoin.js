@@ -1,10 +1,15 @@
 import { Button, Badge, Box } from "@mui/material"
+import { useDispatch } from "react-redux";
+import { insertCoin }  from "../store/actions";
 
 const SingleCoin = ({coins}) => {
 
-  return (
+  const dispatch = useDispatch();
 
-    coins.map((item, index) => {
+  console.log('coins:', coins);
+
+  return (
+    coins.map(item => {
       return (
         <Box
           margin="20px 10px"
@@ -15,6 +20,7 @@ const SingleCoin = ({coins}) => {
             color="primary"
           >
             <Button
+              onClick={() => dispatch(insertCoin(item.id))}
               variant="contained"
               color="inherit"
               size="medium"
@@ -31,7 +37,6 @@ const SingleCoin = ({coins}) => {
             </Button>
           </Badge>
         </Box>
-
       )
     })
 

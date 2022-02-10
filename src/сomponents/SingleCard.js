@@ -4,13 +4,13 @@ import { toggleItem }  from "../store/actions";
 import color from "../color";
 
 const SingleCard = ({card}) => {
-  const { id, isSelected } = card;
+
   const dispatch = useDispatch();
  
   return (  
       <Grid item key={card.id} xs={6} sm={4} md={3} lg={2}>
 
-        <CardActionArea onClick={() => dispatch(toggleItem(id))}> 
+        <CardActionArea onClick={() => dispatch(toggleItem(card.id))}> 
           <Card
           sx={{
             backgroundImage: `url(${card.img})`,
@@ -21,7 +21,7 @@ const SingleCard = ({card}) => {
             <CardContent
             sx={{
               textAlign: "center",
-              backgroundColor: isSelected ? color("blue", 0.5) : color("white", 0.9),
+              backgroundColor: card.isSelected ? color("blue", 0.5) : color("white", 0.9),
               // marginTop: "30px", // uncomment to display image part in card
               "&:hover": {
                 backgroundColor: color("white", 0.5),
@@ -37,7 +37,7 @@ const SingleCard = ({card}) => {
                 id={card.id}
                 variant="h5"
                 gutterBottom
-                color={isSelected ? color("white") : color("gray")}
+                color={card.isSelected ? color("white") : color("gray")}
               >
                 {card.name}
               </Typography>
@@ -46,7 +46,7 @@ const SingleCard = ({card}) => {
                 variant="h4"
                 gutterBottom
                 fontWeight="700" 
-                color={isSelected ? color("white") : color("darkgray")}
+                color={card.isSelected ? color("white") : color("darkgray")}
               >
                 {card.price}
               </Typography>
