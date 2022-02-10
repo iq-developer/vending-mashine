@@ -1,11 +1,11 @@
 import { Container, Toolbar, Box } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material"
-import Cart from "./Cart";
+import TopToolbar from "../сomponents/TopToolbar";
 import { useSelector } from "react-redux";
 
 const Header = () => {
 
-  const items = useSelector(state => state);
+  const items = useSelector(state => state.cards);
 
   return (
     <>
@@ -28,7 +28,14 @@ const Header = () => {
           margin: "0 auto",
           fontSize: "20px"
         }}>
-          {items.cards.find(item => item.isSelected) ? <Cart/> : <><ShoppingCart /> <h3>Vending mashine</h3></>}
+          {items.find(item => item.isSelected)
+          ? <TopToolbar
+              title="Selected:"
+              itemName="items"
+              data={items}
+              isCards
+          />
+          : <><ShoppingCart /> <h3>Vending mashine</h3></>}
         </Box>
       </Container>
       </Toolbar>

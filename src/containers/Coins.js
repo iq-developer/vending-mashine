@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
 import SingleCoin from "../сomponents/SingleCoin";
 
-const Coins = ({coinsData}) => {
+const Coins = ({data}) => {
 
   const coins = useSelector(state => state.coins);
 
   return (
-    <SingleCoin coins={coinsData} />
+    <SingleCoin coins={data} />
   )
 }
 
