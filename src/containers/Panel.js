@@ -2,7 +2,19 @@ import { Box, Toolbar, Container } from "@mui/material";
 import Coins from "./Coins";
 
 
-const Panel = ({Title, topBgColor, bottomBgColor, coinsQuantity, moneySum, coinsData}) => {
+const Panel = ({Title, topBgColor, bottomBgColor, coinsData}) => {
+
+  const coinsQuantity = coinsData.reduce((acc, current) => acc + current.quantity, 0);
+
+  const moneySum = coinsData.reduce((acc, current) => {
+
+    const denominationInPence = current.isPound ? current.denomination : current.denomination / 100;
+    
+    return  acc + current.quantity * denominationInPence;
+    
+  }, 0);
+
+  console.log('moneySum:', moneySum);
 
   return (
     <>
