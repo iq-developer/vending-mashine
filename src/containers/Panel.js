@@ -22,7 +22,10 @@ const Panel = ({title, itemName, topBgColor, bottomBgColor, data}) => {
           display: "flex",
           justifyContent: "center",
         }}>
-          <Coins data={data}/>
+          <Coins
+            data={data}
+            title={title}
+          />
         </Container>
       </Toolbar>
     </>

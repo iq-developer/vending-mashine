@@ -19,21 +19,17 @@ const Footer = () => {
       right: 0,
     }}>
       <Panel
-        title="Deposited:"
+        title="Deposited"
         itemName="coins"
         topBgColor="success.main"
         bottomBgColor="success.light"
-        coinsQuantity="5"
-        moneySum="30"
         data={depositedCoins}
       />
       <Panel
-        title="Your money:"
+        title="Your money"
         itemName="coins"
         topBgColor="primary.dark"
         bottomBgColor="primary.light"
-        coinsQuantity="10"
-        moneySum="40"
         data={coins}
       />
     </Box>

@@ -7,3 +7,18 @@ export const insertCoin = id => ({
   type: "INSERT_COIN",
   payload: { id }
 });
+
+export const receiveCoin = id => ({
+  type: "RECEIVE_COIN",
+  payload: { id }
+});
+
+export const returnCoin = id => ({
+  type: "RETURN_COIN",
+  payload: { id }
+});
+
+export const giveCoin = id => ({
+  type: "GIVE_COIN",
+  payload: { id }
+});

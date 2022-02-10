@@ -35,7 +35,7 @@ const TopToolbar = ({title, itemName, topBgColor, data, isCards}) => {
         fontSize: "20px"
       }}>
         <Box width="130px">
-          {title}
+          {title}:
         </Box>
         <Box width="90px">
           {quantity} {itemName}
