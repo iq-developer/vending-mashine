@@ -16,8 +16,6 @@ const SingleCoin = ({coins, title}) => {
     }
   }
 
-  console.log('coins:', coins);
-
   return (
     coins.map(item => {
       return (

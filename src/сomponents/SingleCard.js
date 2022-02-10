@@ -2,6 +2,7 @@ import { Typography, Grid, Card, CardContent, CardActionArea } from "@mui/materi
 import { useDispatch } from "react-redux";
 import { toggleItem }  from "../store/actions";
 import color from "../color";
+import H5 from "../containers/H5";
 
 const SingleCard = ({card}) => {
 
@@ -33,23 +34,18 @@ const SingleCard = ({card}) => {
             }}
             id={card.id}
             >
-              <Typography
+              <H5
+                name={card.name}
                 id={card.id}
-                variant="h5"
-                gutterBottom
                 color={card.isSelected ? color("white") : color("gray")}
-              >
-                {card.name}
-              </Typography>
-              <Typography
+              />
+              <H5
+                name={card.price}
                 id={card.id}
                 variant="h4"
-                gutterBottom
-                fontWeight="700" 
+                fontWeight="700"
                 color={card.isSelected ? color("white") : color("darkgray")}
-              >
-                {card.price}
-              </Typography>
+              />  
             </CardContent>
           </Card>
         </CardActionArea>
