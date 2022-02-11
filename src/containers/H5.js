@@ -1,16 +1,33 @@
 import { Typography } from "@mui/material";
+import colorFunc from "../helpers/color";
 
-const H5 = ({id, variant="h5", name, color, fontWeight="400"}) => {
+const H5 = (data, options) => {
+
+  const { id } = data;
+
+  const defaultOptions = {
+    value: 'name',
+    variant: 'h5',
+    color: 'gray',
+    gutterBottom: true,
+    fontWeight: 400,
+  }
+
+  const {variant, color, gutterBottom, fontWeight, value} = {...defaultOptions, ...options}
+
+  const text = data[value];
+
+  const colorA = data.isSelected ? colorFunc("white") : colorFunc(color);
 
   return (
     <Typography
       id={id}
       variant={variant}
-      color={color}
-      gutterBottom
+      color={colorA}
+      gutterBottom={gutterBottom}
       fontWeight={fontWeight}
     >
-      {name}
+      {text}
     </Typography>
   )
 }
