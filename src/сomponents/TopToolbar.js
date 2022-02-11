@@ -15,17 +15,16 @@ const TopToolbar = ({title, itemName, topBgColor, data, isCards}) => {
 
     const cardsSelected = data.filter(item => item.isSelected);
 
-    quantity = cardsSelected.reduce(acc => ++acc, 0);
+    quantity = cardsSelected.length;
 
-    sum = cardsSelected.reduce((acc, current) => acc + (+current.price), 0);
+    sum = cardsSelected.reduce((acc, current) => acc + current.price, 0);
 
   } else { // if coins data
     
-    quantity = data.reduce((acc, current) => acc + current.quantity, 0);
+    quantity = data.length;
 
     sum = data.reduce((acc, current) => {
-      const denominationInPence = current.isPound ? current.denomination : current.denomination / 100;
-      return  acc + current.quantity * denominationInPence;
+      return  acc + current.quantity * current.value;
     }, 0);
 
   }

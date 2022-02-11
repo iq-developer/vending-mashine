@@ -1,9 +1,7 @@
 import { Typography } from "@mui/material";
 import colorFunc from "../helpers/color";
 
-const CardTypo = ({data}, options, q) => {
-
-  console.log('q:', q);
+const CardTypo = ({data, options}) => {
 
   const { id } = data; 
 
