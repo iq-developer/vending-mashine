@@ -1,9 +1,11 @@
 import { Typography } from "@mui/material";
 import colorFunc from "../helpers/color";
 
-const H5 = (data, options) => {
+const CardTypo = ({data}, options, q) => {
 
-  const { id } = data;
+  console.log('q:', q);
+
+  const { id } = data; 
 
   const defaultOptions = {
     value: 'name',
@@ -15,7 +17,7 @@ const H5 = (data, options) => {
 
   const {variant, color, gutterBottom, fontWeight, value} = {...defaultOptions, ...options}
 
-  const text = data[value];
+  const text = data[value]; 
 
   const colorA = data.isSelected ? colorFunc("white") : colorFunc(color);
 
@@ -32,4 +34,4 @@ const H5 = (data, options) => {
   )
 }
 
-export default H5;
+export default CardTypo;

@@ -2,7 +2,7 @@ import {Card, CardActionArea, CardContent, Grid} from "@mui/material";
 import {useDispatch} from "react-redux";
 import {toggleItem} from "../store/actions";
 import color from "../helpers/color";
-import H5 from "../containers/H5";
+import CardTypo from "../containers/CardTypo";
 
 const SingleCard = ({card}) => {
 
@@ -34,21 +34,15 @@ const SingleCard = ({card}) => {
             }}
             id={card.id}
           >
-            <H5 data={card}/>
+            <CardTypo data={card}/>
 
-            <H5 data={card} options={{
+            <CardTypo data={card} options={{
               value: 'price',
               variant: 'h4',
               fontWeight: "700"
             }}
             />
-            <H5
-              name={card.price}
-              id={card.id}
-              variant="h4"
-              fontWeight="700"
-              color={card.isSelected ? color("white") : color("darkgray")}
-            />
+            
           </CardContent>
           </Card>
         </CardActionArea>

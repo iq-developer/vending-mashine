@@ -1,5 +1,5 @@
 import { Box, Toolbar, Container, Button } from "@mui/material";
-import BuyButton from "./BuyButton";
+import PayButton from "./PayButton";
 import { useDispatch } from "react-redux";
 import { updateSum }  from "../store/actions";
 import currency from "../helpers/currency"
@@ -56,7 +56,7 @@ const TopToolbar = ({title, itemName, topBgColor, data, isCards}) => {
           {currency(sum.toFixed(2))}
         </Box>
 
-        {title === "Deposited" ? <BuyButton /> : ""}
+        {title === "Deposited" ? <PayButton /> : ""}
         
       </Box>
     </Container>
