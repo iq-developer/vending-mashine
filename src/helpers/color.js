@@ -1,4 +1,3 @@
-
 const color = (name, opacity = 1) => {
   switch (name) {
     case "white":

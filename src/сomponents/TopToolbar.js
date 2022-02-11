@@ -1,18 +1,25 @@
-import { Box, Toolbar, Container } from "@mui/material";
+import { Box, Toolbar, Container, Button } from "@mui/material";
+import BuyButton from "./BuyButton";
+import { useDispatch } from "react-redux";
+import { updateSum }  from "../store/actions";
+import currency from "../helpers/currency"
 
 const TopToolbar = ({title, itemName, topBgColor, data, isCards}) => {
- 
-  let quantity, sum;
 
-  if (isCards) {
+  const dispatch = useDispatch();
+ 
+  let quantity = 0;
+  let sum = 0;
+
+  if (isCards) { // if cards data
 
     const cardsSelected = data.filter(item => item.isSelected);
 
     quantity = cardsSelected.reduce(acc => ++acc, 0);
 
-    sum = cardsSelected.reduce((acc, current) => acc + +current.price, 0);
+    sum = cardsSelected.reduce((acc, current) => acc + (+current.price), 0);
 
-  } else {
+  } else { // if coins data
     
     quantity = data.reduce((acc, current) => acc + current.quantity, 0);
 
@@ -23,6 +30,8 @@ const TopToolbar = ({title, itemName, topBgColor, data, isCards}) => {
 
   }
 
+  dispatch(updateSum(sum));
+
   return (
     <Toolbar sx={{
       backgroundColor: topBgColor,
@@ -30,19 +39,25 @@ const TopToolbar = ({title, itemName, topBgColor, data, isCards}) => {
     <Container>
       <Box sx={{
         display: "flex",
-        width: "300px",
+        justifyContent: "center",
         margin: "0 auto",
         fontSize: "20px"
       }}>
-        <Box width="130px">
+
+        <Box p={1}>
           {title}:
         </Box>
-        <Box width="90px">
+
+        <Box p={1}>
           {quantity} {itemName}
         </Box>
-        <Box width="80px">
-          £ {sum.toFixed(2)}
-        </Box>     
+
+        <Box p={1}>
+          {currency(sum.toFixed(2))}
+        </Box>
+
+        {title === "Deposited" ? <BuyButton /> : ""}
+        
       </Box>
     </Container>
     </Toolbar>

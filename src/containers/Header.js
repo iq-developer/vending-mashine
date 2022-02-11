@@ -8,7 +8,6 @@ const Header = () => {
   const items = useSelector(state => state.cards);
 
   return (
-    <>
     <Box
       sx={{
       color: "#fff",
@@ -24,26 +23,28 @@ const Header = () => {
       <Container>
         <Box sx={{
           display: "flex",
-          width: "400px",
+          justifyContent: "center",
           margin: "0 auto",
           fontSize: "20px"
         }}>
           {items.find(item => item.isSelected)
           ? <TopToolbar
-              title="Selected:"
+              title="Selected"
               itemName="items"
               data={items}
               isCards
           />
-          : <><ShoppingCart /> <h3>Vending mashine</h3></>}
+          : <>
+            <Box mr={2}>
+              <ShoppingCart />
+            </Box>
+            <h3>Vending mashine</h3>
+          </>}
         </Box>
       </Container>
       </Toolbar>
 
     </Box>
-
-
-    </>
   );
 }
 

@@ -2,7 +2,6 @@ import { Box } from "@mui/material";
 import Panel from "./Panel";
 import { useSelector } from "react-redux";
 
-
 const Footer = () => {
 
   const coins = useSelector(state => state.coins);
@@ -24,6 +23,7 @@ const Footer = () => {
         topBgColor="success.main"
         bottomBgColor="success.light"
         data={depositedCoins}
+        
       />
       <Panel
         title="Your money"

@@ -1,7 +1,7 @@
-import { Typography, Grid, Card, CardContent, CardActionArea } from "@mui/material";
+import { Grid, Card, CardContent, CardActionArea } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { toggleItem }  from "../store/actions";
-import color from "../color";
+import color from "../helpers/color";
 import H5 from "../containers/H5";
 
 const SingleCard = ({card}) => {

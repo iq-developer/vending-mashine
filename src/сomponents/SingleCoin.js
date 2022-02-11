@@ -1,6 +1,7 @@
 import { Button, Badge, Box } from "@mui/material"
 import { useDispatch } from "react-redux";
 import { insertCoin, receiveCoin, returnCoin, giveCoin }  from "../store/actions";
+import currency from "../helpers/currency";
 
 const SingleCoin = ({coins, title}) => {
 
@@ -39,9 +40,7 @@ const SingleCoin = ({coins, title}) => {
                 color: "#000"
               }}
             >
-              {item.isPound ? "£" : ""}
-              {item.denomination}
-              {item.isPound ? "" : "p"}
+              {currency(item.denomination, item.isPound)}
             </Button>
           </Badge>
         </Box>

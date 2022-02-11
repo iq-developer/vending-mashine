@@ -22,3 +22,9 @@ export const giveCoin = id => ({
   type: "GIVE_COIN",
   payload: { id }
 });
+
+
+export const updateSum = sum => ({
+  type: "UPDATE_SUM",
+  payload: { sum }
+});
