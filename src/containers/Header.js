@@ -1,9 +1,11 @@
 import { Container, Toolbar, Box } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material"
 import TopToolbar from "../сomponents/TopToolbar";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import quantity from "../helpers/quantity";
 import sum from "../helpers/sum";
+import { useEffect } from "react";
+import { updateSelectedSum } from "../store/actions";
 
 const Header = () => {
 
@@ -11,7 +13,13 @@ const Header = () => {
 
   const selectedItems = items.filter(item => item.isSelected);
 
-  console.log('selectedItems:', selectedItems);
+  const dispatch = useDispatch();
+
+  const selectedSum = sum(selectedItems);
+
+  useEffect(()=>{
+    dispatch(updateSelectedSum(selectedSum));
+  })
 
   return (
     <Box
@@ -38,9 +46,8 @@ const Header = () => {
               title="Selected"
               itemName="items"
               data={items}
-              isCards
               quantity={quantity(selectedItems)}
-              sum={sum(selectedItems)}
+              sum={selectedSum}
           />
           : <>
             <Box mr={2}>

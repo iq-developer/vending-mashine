@@ -3,11 +3,22 @@ import Panel from "./Panel";
 import { useSelector } from "react-redux";
 import quantity from "../helpers/quantity";
 import sum from "../helpers/sum";
+import { useDispatch } from "react-redux";
+import { updateDepositedSum } from "../store/actions";
+import { useEffect } from "react";
 
 const Footer = () => {
 
   const coins = useSelector(state => state.coins);
   const depositedCoins = useSelector(state => state.depositedCoins);
+
+  const dispatch = useDispatch();
+
+  const depositedSum = sum(depositedCoins);
+
+  useEffect(()=>{
+    dispatch(updateDepositedSum(depositedSum));
+  })
 
   return (
     <Box
@@ -26,7 +37,7 @@ const Footer = () => {
         bottomBgColor="success.light"
         data={depositedCoins}
         quantity={quantity(depositedCoins)}
-        sum={sum(depositedCoins)}
+        sum={depositedSum}
       />
       <Panel
         title="Your money"

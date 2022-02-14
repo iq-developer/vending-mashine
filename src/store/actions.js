@@ -24,7 +24,22 @@ export const giveCoin = id => ({
 });
 
 
-export const updateSum = sum => ({
-  type: "UPDATE_SUM",
+export const updateUserSum = sum => ({
+  type: "UPDATE_USER_SUM",
+  payload: { sum }
+});
+
+export const updateDepositedSum = sum => ({
+  type: "UPDATE_DEPOSITED_SUM",
+  payload: { sum }
+});
+
+export const updateSelectedSum = sum => ({
+  type: "UPDATE_SELECTED_SUM",
+  payload: { sum }
+});
+
+export const updateMashineSum = sum => ({
+  type: "UPDATE_MASHINE_SUM",
   payload: { sum }
 });

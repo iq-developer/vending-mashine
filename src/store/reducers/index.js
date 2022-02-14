@@ -10,7 +10,7 @@ const allReducers = combineReducers({
   coins: CoinsReducer,
   mashineCoins: MashineCoinsReducer,
   depositedCoins: DepositedCoinsReducer,
-  sum: SumReducer,
+  amounts: SumReducer,
 });
 
 export default allReducers;
