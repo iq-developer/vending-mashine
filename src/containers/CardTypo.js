@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
 import colorFunc from "../helpers/color";
+import currency from "../helpers/currency";
 
 const CardTypo = ({data, options}) => {
 
@@ -15,7 +16,7 @@ const CardTypo = ({data, options}) => {
 
   const {variant, color, gutterBottom, fontWeight, value} = {...defaultOptions, ...options}
 
-  const text = data[value]; 
+  const text = (typeof data[value] === 'number') ? currency(data[value], true) : data[value];
 
   const colorA = data.isSelected ? colorFunc("white") : colorFunc(color);
 

@@ -1,15 +1,18 @@
 import options from "./options";
 
-const {currencyName} = options;
+const { currencyName } = options;
 
-const currency = (amount, isRound = true) => {
-  switch (currencyName ) {
+const currency = (amount, hideSymbol = false) => {
+
+  const amountFixed = amount.toFixed(2);
+
+  switch (currencyName) {
     case "Pound":
-      return isRound ? `£${amount}` : `${amount}p`;
+      return hideSymbol ? `${amountFixed}` : `£${amountFixed}` ;
     case "Dollar":
-      return isRound ? `$${amount}` : `${amount}¢`;
+      return hideSymbol ? `${amountFixed}` : `$${amountFixed}`;
     default:
-      return isRound ? `$${amount}` : `${amount}¢`;
+      return hideSymbol ? `${amountFixed}` : `$${amountFixed}`;
   }
 }
 

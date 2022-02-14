@@ -24,8 +24,8 @@ const TopToolbar = ({title, itemName, topBgColor, quantity, sum}) => {
           {quantity} {itemName}
         </Box>
 
-        <Box p={1}>
-          {currency(sum.toFixed(2))}
+        <Box p={1} pr={2}>
+          {currency(sum)}
         </Box>
 
         {title === "Deposited" ? <PayButton /> : ""}

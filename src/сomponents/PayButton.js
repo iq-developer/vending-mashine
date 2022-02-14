@@ -8,12 +8,17 @@ const PayButton = () => {
 
   const disabled = amounts.selectedSum > amounts.depositedSum;
 
+  const handlerPayClick = () => {
+
+  }
+
   return (
     <Button
       variant="contained"
       color="secondary"
       endIcon={<ArrowCircleUp />}
       disabled={disabled}
+      onClick={handlerPayClick}
     >
      Pay 
     </Button>
