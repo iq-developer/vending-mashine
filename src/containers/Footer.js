@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import quantity from "../helpers/quantity";
 import sum from "../helpers/sum";
 import { useDispatch } from "react-redux";
-import { updateDepositedSum } from "../store/actions";
+import { updateDepositedSum, updateMashineSum } from "../store/actions";
 import { useEffect } from "react";
 
 const Footer = () => {
@@ -16,9 +16,11 @@ const Footer = () => {
   const dispatch = useDispatch();
 
   const depositedSum = sum(depositedCoins);
+  const mashineSum = sum(mashineCoins);
 
   useEffect(()=>{
     dispatch(updateDepositedSum(depositedSum));
+    dispatch(updateMashineSum(mashineSum));
   })
 
   return (

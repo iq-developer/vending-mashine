@@ -10,12 +10,15 @@ export default function reducer(state = itemsWithQuantity, action) {
 
   switch (action.type) {
 
-    case "ITEM_TOGGLE":
+    case "TOGGLE_ITEM":
       return state.map(item => {
         if (item.id === action.payload.id)
           return { ...item, isSelected: !item.isSelected }
         return item;
       });
+
+    case "REMOVE_SELECTED_ITEMS":
+      return state.filter(item => !item.isSelected);
 
     default:
       return state;

@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import { ArrowCircleUp } from "@mui/icons-material"
 import { useSelector, useDispatch } from "react-redux";
-import { depositedToMashine, mashineFromDeposited } from "../store/actions";
+import { depositedToMashine, mashineFromDeposited, removeSelectedItems } from "../store/actions";
 import CustomizedSnackbars from "./CustomizedSnackbars"
 import { useState } from "react";
 
@@ -32,6 +32,7 @@ const PayButton = () => {
     if (amounts.mashineSum > difference) {
       dispatch(mashineFromDeposited(depositedCoins));
       dispatch(depositedToMashine());
+      dispatch(removeSelectedItems());
     } else {
       displayMessage("Not enought money in mashine to to give change from payment",);
     }

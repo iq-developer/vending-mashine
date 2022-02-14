@@ -1,6 +1,10 @@
 export const toggleItem = id => ({
-  type: "ITEM_TOGGLE",
+  type: "TOGGLE_ITEM",
   payload: { id }
+});
+
+export const removeSelectedItems = () => ({
+  type: "REMOVE_SELECTED_ITEMS"
 });
 
 
@@ -24,8 +28,6 @@ export const userFromDeposited = id => ({
   payload: { id }
 });
 
-
-
 export const mashineFromDeposited = data => ({
   type: "MASHINE_FROM_DEPOSITED",
   payload: { data }
@@ -34,7 +36,6 @@ export const mashineFromDeposited = data => ({
 export const depositedToMashine = () => ({
   type: "DEPOSITED_TO_MASHINE"
 });
-
 
 
 
