@@ -3,7 +3,7 @@ import Coins from "./Coins";
 import TopToolbar from "../сomponents/TopToolbar";
 
 
-const Panel = ({title, itemName, topBgColor, bottomBgColor, data}) => {
+const Panel = ({title, itemName, topBgColor, bottomBgColor, data, quantity, sum}) => {
 
   return (
     <>
@@ -12,6 +12,8 @@ const Panel = ({title, itemName, topBgColor, bottomBgColor, data}) => {
         itemName={itemName}
         topBgColor={topBgColor}
         data={data}
+        quantity={quantity}
+        sum={sum}
       />
 
       <Toolbar sx={{

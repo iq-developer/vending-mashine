@@ -1,36 +1,9 @@
-import { Box, Toolbar, Container, Button } from "@mui/material";
+import { Box, Toolbar, Container } from "@mui/material";
 import PayButton from "./PayButton";
-import { useDispatch } from "react-redux";
-import { updateSum }  from "../store/actions";
 import currency from "../helpers/currency"
 
-const TopToolbar = ({title, itemName, topBgColor, data, isCards}) => {
-
-  const dispatch = useDispatch();
+const TopToolbar = ({title, itemName, topBgColor, quantity, sum}) => {
  
-  let quantity = 0;
-  let sum = 0;
-
-  if (isCards) { // if cards data
-
-    const cardsSelected = data.filter(item => item.isSelected);
-
-    quantity = cardsSelected.length;
-
-    sum = cardsSelected.reduce((acc, current) => acc + current.price, 0);
-
-  } else { // if coins data
-    
-    quantity = data.length;
-
-    sum = data.reduce((acc, current) => {
-      return  acc + current.quantity * current.value;
-    }, 0);
-
-  }
-
-  dispatch(updateSum(sum));
-
   return (
     <Toolbar sx={{
       backgroundColor: topBgColor,

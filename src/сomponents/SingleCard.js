@@ -37,7 +37,7 @@ const SingleCard = ({card}) => {
             <CardTypo data={card}/>
 
             <CardTypo data={card} options={{
-              value: 'price',
+              value: 'value',
               variant: 'h4',
               fontWeight: "700"
             }}

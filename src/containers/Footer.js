@@ -1,6 +1,8 @@
 import { Box } from "@mui/material";
 import Panel from "./Panel";
 import { useSelector } from "react-redux";
+import quantity from "../helpers/quantity";
+import sum from "../helpers/sum";
 
 const Footer = () => {
 
@@ -23,7 +25,8 @@ const Footer = () => {
         topBgColor="success.main"
         bottomBgColor="success.light"
         data={depositedCoins}
-        
+        quantity={quantity(depositedCoins)}
+        sum={sum(depositedCoins)}
       />
       <Panel
         title="Your money"
@@ -31,6 +34,8 @@ const Footer = () => {
         topBgColor="primary.dark"
         bottomBgColor="primary.light"
         data={coins}
+        quantity={quantity(coins)}
+        sum={sum(coins)}
       />
     </Box>
   );

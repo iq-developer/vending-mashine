@@ -1,6 +1,12 @@
 import cards from "../../data/items.json"
 
-export default function reducer(state = cards, action) {
+const defaultState = cards ? cards : [];
+
+const cardsWithQuantity = defaultState.map(item => {
+  return {...item, quantity: 1}
+});
+
+export default function reducer(state = cardsWithQuantity, action) {
 
   switch (action.type) {
 
