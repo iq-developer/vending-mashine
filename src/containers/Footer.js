@@ -9,8 +9,9 @@ import { useEffect } from "react";
 
 const Footer = () => {
 
-  const coins = useSelector(state => state.coins);
+  const userCoins = useSelector(state => state.userCoins);
   const depositedCoins = useSelector(state => state.depositedCoins);
+  const mashineCoins = useSelector(state => state.mashineCoins);
 
   const dispatch = useDispatch();
 
@@ -31,6 +32,16 @@ const Footer = () => {
       right: 0,
     }}>
       <Panel
+        title="Mashine"
+        itemName="coins"
+        topBgColor="secondary.main"
+        bottomBgColor="secondary.light"
+        data={mashineCoins}
+        quantity={quantity(mashineCoins)}
+        sum={sum(mashineCoins)}
+      />
+
+      <Panel
         title="Deposited"
         itemName="coins"
         topBgColor="success.main"
@@ -44,9 +55,9 @@ const Footer = () => {
         itemName="coins"
         topBgColor="primary.dark"
         bottomBgColor="primary.light"
-        data={coins}
-        quantity={quantity(coins)}
-        sum={sum(coins)}
+        data={userCoins}
+        quantity={quantity(userCoins)}
+        sum={sum(userCoins)}
       />
     </Box>
   );

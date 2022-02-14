@@ -1,12 +1,12 @@
-import cards from "../../data/items.json"
+import items from "../../data/items.json"
 
-const defaultState = cards ? cards : [];
+const defaultState = items ? items : [];
 
-const cardsWithQuantity = defaultState.map(item => {
+const itemsWithQuantity = defaultState.map(item => {
   return {...item, quantity: 1}
 });
 
-export default function reducer(state = cardsWithQuantity, action) {
+export default function reducer(state = itemsWithQuantity, action) {
 
   switch (action.type) {
 

@@ -9,7 +9,7 @@ import { updateSelectedSum } from "../store/actions";
 
 const Header = () => {
 
-  const items = useSelector(state => state.cards);
+  const items = useSelector(state => state.items);
 
   const selectedItems = items.filter(item => item.isSelected);
 

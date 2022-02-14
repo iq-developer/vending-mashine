@@ -4,14 +4,14 @@ import { useSelector } from "react-redux";
 
 const Cards = () => {
 
-  const items = useSelector(state => state.cards);
+  const items = useSelector(state => state.items);
 
   return (
     <main className="main">
       <Container maxWidth="lg">
         <Grid container spacing={4} pt={10}>
             {items.map((item, index) => (
-              <SingleCard card={item} key={index} />
+              <SingleCard item={item} key={index} />
             ))}   
         </Grid>
       </Container>  
