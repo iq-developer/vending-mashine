@@ -3,25 +3,39 @@ export const toggleItem = id => ({
   payload: { id }
 });
 
-export const insertCoin = id => ({
-  type: "INSERT_COIN",
+
+export const userToDeposited = id => ({
+  type: "USER_TO_DEPOSITED",
   payload: { id }
 });
 
-export const receiveCoin = id => ({
-  type: "RECEIVE_COIN",
+export const depositedFromUser = id => ({
+  type: "DEPOSITED_FROM_USER",
   payload: { id }
 });
 
-export const returnCoin = id => ({
-  type: "RETURN_COIN",
+export const depositedToUser = id => ({
+  type: "DEPOSITED_TO_USER",
   payload: { id }
 });
 
-export const giveCoin = id => ({
-  type: "GIVE_COIN",
+export const userFromDeposited = id => ({
+  type: "USER_FROM_DEPOSITED",
   payload: { id }
 });
+
+
+
+export const mashineFromDeposited = data => ({
+  type: "MASHINE_FROM_DEPOSITED",
+  payload: { data }
+});
+
+export const depositedToMashine = () => ({
+  type: "DEPOSITED_TO_MASHINE"
+});
+
+
 
 
 export const updateUserSum = sum => ({

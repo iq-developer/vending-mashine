@@ -1,6 +1,6 @@
 import { Button, Badge, Box } from "@mui/material"
 import { useDispatch } from "react-redux";
-import { insertCoin, receiveCoin, returnCoin, giveCoin }  from "../store/actions";
+import { userToDeposited, depositedFromUser, depositedToUser, userFromDeposited }  from "../store/actions";
 
 const SingleCoin = ({coins, title}) => {
 
@@ -8,11 +8,11 @@ const SingleCoin = ({coins, title}) => {
 
   const handleCoinClick = (id) => {
     if (title === "Your money") {
-      dispatch(insertCoin(id));
-      dispatch(receiveCoin(id));
+      dispatch(userToDeposited(id));
+      dispatch(depositedFromUser(id));
     } else {
-      dispatch(returnCoin(id));
-      dispatch(giveCoin(id));
+      dispatch(depositedToUser(id));
+      dispatch(userFromDeposited(id));
     }
   }
 

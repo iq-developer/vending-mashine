@@ -1,18 +1,23 @@
 import { Button } from "@mui/material";
 import { ArrowCircleUp } from "@mui/icons-material"
 import { useSelector, useDispatch } from "react-redux";
-import { updateDepositedSum } from "../store/actions";
+import { depositedToMashine, mashineFromDeposited } from "../store/actions";
 
 const PayButton = () => {
 
   const amounts = useSelector(state => state.amounts);
 
-  const disabled = amounts.selectedSum > amounts.depositedSum;
+  const disabled = amounts.selectedSum ? amounts.selectedSum > amounts.depositedSum : true;
+
+  const depositedCoins = useSelector(state => state.depositedCoins);
+
+  console.log('depositedCoins:', depositedCoins);
 
   const dispatch = useDispatch();
 
-  const handlerPayClick = () => {
-
+  const handlerPayClick = (id) => {
+    dispatch(mashineFromDeposited(depositedCoins));
+    dispatch(depositedToMashine());
   }
 
   return (
@@ -21,7 +26,7 @@ const PayButton = () => {
       color="secondary"
       endIcon={<ArrowCircleUp />}
       disabled={disabled}
-      onClick={handlerPayClick}
+      onClick={() => handlerPayClick()}
     >
      Pay 
     </Button>

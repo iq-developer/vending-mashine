@@ -6,12 +6,15 @@ export default function reducer(state = defaultState, action) {
 
   switch (action.type) {
 
-    case 'ITEM_TOGGLE':
-      return state.map(item => {
-        if (item.id === action.payload.id)
-          return { ...item, isSelected: !item.isSelected }
-        return item;
+    case 'MASHINE_FROM_DEPOSITED':
+
+      return state.map((item, index) => {
+
+          console.log('item:', item);
+          console.log('action.payload.data[index]:', action.payload.data[index]);
+          return { ...item, quantity: item.quantity + action.payload.data[index].quantity }
       });
+
 
     default:
       return state;
