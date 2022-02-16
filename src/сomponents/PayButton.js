@@ -4,14 +4,18 @@ import { useSelector, useDispatch } from "react-redux";
 import { depositedToMashine, mashineFromDeposited, removeSelectedItems } from "../store/actions";
 import CustomizedSnackbars from "./CustomizedSnackbars"
 import { useState } from "react";
+import changeCalculator from "../helpers/changeCalculator"
+
+import defaultMoney from "../data/depositedMoney.json"
+let possibleChange = defaultMoney ? defaultMoney : [];
 
 const PayButton = () => {
 
-  const amounts = useSelector(state => state.amounts);
+  const {amounts, mashineCoins, depositedCoins} = useSelector(state => state);
+
+  const {depositedSum, selectedSum} = amounts;
 
   const disabled = amounts.selectedSum ? amounts.selectedSum > amounts.depositedSum : true;
-
-  const depositedCoins = useSelector(state => state.depositedCoins);
 
   const dispatch = useDispatch();
 
@@ -25,14 +29,37 @@ const PayButton = () => {
     setOpenSnackbar(true);
   }
 
+
+
+  const giveChange = (depositedSum, selectedSum, mashineCoins, depositedCoins, difference) => {
+
+    const accesibleCoins = mashineCoins.map((item, index) => {
+      return { ...item, quantity: item.quantity + depositedCoins[index].quantity }
+    });
+
+    const possibleChange = changeCalculator(accesibleCoins, difference, true);
+
+    const possibleMashineCoins = changeCalculator(accesibleCoins, difference);
+
+    console.log('possibleChange:', possibleChange);
+
+    console.log('possibleMashineCoins:', possibleMashineCoins);
+
+  }
+
+  
+
   const handlerPayClick = (id) => {
 
-    const difference = amounts.depositedSum - amounts.selectedSum;
+    const difference = depositedSum - selectedSum;
 
     if (amounts.mashineSum > difference) {
-      dispatch(mashineFromDeposited(depositedCoins));
-      dispatch(depositedToMashine());
-      dispatch(removeSelectedItems());
+
+      giveChange(depositedSum, selectedSum, mashineCoins, depositedCoins, difference);
+
+      //dispatch(mashineFromDeposited(depositedCoins));
+      //dispatch(depositedToMashine());
+      //dispatch(removeSelectedItems());
     } else {
       displayMessage("Not enought money in mashine to to give change from payment",);
     }
