@@ -17,17 +17,17 @@ const SingleCoin = ({id, quantity, name, title}) => {
       setAnimated("animated");
       setTimeout(() => setAnimated(""), 500);
 
-    } else {
+    } else if (title === "Deposited"){
       dispatch(depositedToUser(id));
       dispatch(userFromDeposited(id));
 
       setAnimated("animated animated-down");
       setTimeout(() => setAnimated(""), 500);
-      
+    } else {
+      console.log("you can't move mashine money");
     }
+
   }
-
-
       return (
         <Box
           margin="20px 10px"
