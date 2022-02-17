@@ -5,6 +5,7 @@ import MashineCoinsReducer from "./mashine-coins-reducer";
 import DepositedCoinsReducer from "./deposited-coins-reducer";
 import SumReducer from "./sum-reducer";
 import OptionsReducer from "./options-reducer";
+import SnackbarReducer from "./snackbar-reducer";
 
 const allReducers = combineReducers({
   items: ItemsReducer,
@@ -13,6 +14,7 @@ const allReducers = combineReducers({
   depositedCoins: DepositedCoinsReducer,
   amounts: SumReducer,
   options: OptionsReducer,
+  snackbar: SnackbarReducer,
 });
 
 export default allReducers;

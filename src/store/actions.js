@@ -89,3 +89,14 @@ export const showDepositedPanel = boolean => ({
   type: "SHOW_DEPOSITED_PANEL",
   payload: { boolean }
 });
+
+/* show/hide snackbar */
+
+export const showSnackbar = (message, severity) => ({
+  type: "SHOW_SNACKBAR",
+  payload: { message, severity }
+});
+
+export const hideSnackbar = () => ({
+  type: "HIDE_SNACKBAR"
+});

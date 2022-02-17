@@ -6,8 +6,6 @@ const Cards = () => {
 
   const items = useSelector(state => state.items);
 
-  console.log('items:', items);
-
   return (
     <main className="main">
       <Container maxWidth="lg">

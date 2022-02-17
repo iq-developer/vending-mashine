@@ -24,8 +24,6 @@ const Footer = () => {
     dispatch(updateMashineSum(mashineSum));
   })
 
-  console.log('options.showMashinePanel:', options.showMashinePanel);
-
   return (
     <Box
       sx={{

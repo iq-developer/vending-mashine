@@ -1,6 +1,9 @@
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { forwardRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { hideSnackbar } from "../store/actions";
+
 
 const Alert = forwardRef(function Alert(props, ref) {
   return (
@@ -12,20 +15,24 @@ const Alert = forwardRef(function Alert(props, ref) {
     />);
 });
 
-const CustomizedSnackbars = ({message, severity, openSnackbar, setOpenSnackbar}) => {
+const CustomizedSnackbars = () => {
+
+  const {snackbar} = useSelector(state => state);
+
+  const dispatch = useDispatch();
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }
-    setOpenSnackbar(false);
+    dispatch(hideSnackbar());
   };
 
   return (
     <>
-      <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity={severity} sx={{ width: '100%' }}>
-          {message}
+      <Snackbar open={snackbar.show} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity={snackbar.severity} sx={{ width: '100%' }}>
+          {snackbar.message}
         </Alert>
       </Snackbar>
     </>

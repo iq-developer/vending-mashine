@@ -1,14 +1,13 @@
 import { Button } from "@mui/material";
 import { ArrowCircleUp } from "@mui/icons-material"
 import { useSelector, useDispatch } from "react-redux";
-import { depositedToMashine, mashineFromDeposited, removeSelectedItems, mashineToDeposited, depositedFromMashine, showMashinePanel } from "../store/actions";
-import CustomizedSnackbars from "./CustomizedSnackbars"
+import { depositedToMashine, mashineFromDeposited, removeSelectedItems, mashineToDeposited, depositedFromMashine, showMashinePanel, showSnackbar } from "../store/actions";
 import { useState } from "react";
 import changeCalculator from "../helpers/changeCalculator"
 
 const PayButton = () => {
 
-  const {amounts, mashineCoins, depositedCoins, options} = useSelector(state => state);
+  const {amounts, mashineCoins, depositedCoins, snackbar} = useSelector(state => state);
 
   const {depositedSum, selectedSum} = amounts;
 
@@ -16,14 +15,9 @@ const PayButton = () => {
 
   const dispatch = useDispatch();
 
-  const [openSnackbar, setOpenSnackbar] = useState(false);
-  const [message, setMessage] = useState("something happened");
-  const [severity, setSeverity] = useState("error");
 
-  const displayMessage = (message, severity) => {
-    if (message) setMessage(message);
-    if (severity) setSeverity(severity);
-    setOpenSnackbar(true);
+  const displayMessage = (message = "something happened", severity = "info") => {
+    dispatch(showSnackbar(message, severity));
   }
 
   const handlerPayClick = (id) => {
@@ -37,8 +31,6 @@ const PayButton = () => {
       if (possibleChange) {
         
         const possibleMashineCoins = changeCalculator(mashineCoins, depositedCoins, difference);
-        console.log('possibleChange:', possibleChange);
-        console.log('possibleMashineCoins:', possibleMashineCoins);
   
         dispatch(mashineFromDeposited(depositedCoins));
         dispatch(depositedToMashine());
@@ -52,12 +44,12 @@ const PayButton = () => {
 
       } else {
         dispatch(showMashinePanel(true));
-        displayMessage("There is no appropriate coins in mashine to give a change");
+        displayMessage("There is no appropriate coins in mashine to give a change", "error");
       }
 
     } else {
       dispatch(showMashinePanel(true));
-      displayMessage("Not enought money in mashine to to give change");
+      displayMessage("Not enought money in mashine to to give change", "error");
     }
 
   }
@@ -73,12 +65,6 @@ const PayButton = () => {
     >
      Pay 
     </Button>
-    <CustomizedSnackbars
-      severity={severity}
-      message={message}
-      openSnackbar={openSnackbar}
-      setOpenSnackbar={setOpenSnackbar}
-     />
     </>
   );
 }
