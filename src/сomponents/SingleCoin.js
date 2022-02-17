@@ -1,6 +1,6 @@
 import { Button, Badge, Box } from "@mui/material"
 import { useDispatch } from "react-redux";
-import { userToDeposited, depositedFromUser, depositedToUser, userFromDeposited, showDepositedPanel, showMashinePanel }  from "../store/actions";
+import { userToDeposited, depositedFromUser, depositedToUser, userFromDeposited, showDepositedPanel, showMashinePanel, showSnackbar }  from "../store/actions";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -31,7 +31,7 @@ const SingleCoin = ({id, quantity, name, title}) => {
       setTimeout(() => setAnimated(""), 500);
 
     } else {
-      console.log("you can't move mashine money");
+      dispatch(showSnackbar("You can't operate mashine money. Them are for preview only", "warning"));
     }
 
     if (options.showMashinePanel){

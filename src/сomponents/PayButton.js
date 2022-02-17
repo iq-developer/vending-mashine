@@ -2,12 +2,11 @@ import { Button } from "@mui/material";
 import { ArrowCircleUp } from "@mui/icons-material"
 import { useSelector, useDispatch } from "react-redux";
 import { depositedToMashine, mashineFromDeposited, removeSelectedItems, mashineToDeposited, depositedFromMashine, showMashinePanel, showSnackbar } from "../store/actions";
-import { useState } from "react";
-import changeCalculator from "../helpers/changeCalculator"
+import changeCalculator from "../helpers/changeCalculator";
 
 const PayButton = () => {
 
-  const {amounts, mashineCoins, depositedCoins, snackbar} = useSelector(state => state);
+  const {amounts, mashineCoins, depositedCoins} = useSelector(state => state);
 
   const {depositedSum, selectedSum} = amounts;
 
@@ -16,11 +15,7 @@ const PayButton = () => {
   const dispatch = useDispatch();
 
 
-  const displayMessage = (message = "something happened", severity = "info") => {
-    dispatch(showSnackbar(message, severity));
-  }
-
-  const handlerPayClick = (id) => {
+  const handlerPayClick = () => {
 
     const difference = depositedSum - selectedSum;
 
@@ -35,7 +30,7 @@ const PayButton = () => {
         dispatch(mashineFromDeposited(depositedCoins));
         dispatch(depositedToMashine());
         dispatch(removeSelectedItems());
-        displayMessage("Payment succesful!", "success");
+        dispatch(showSnackbar("Payment succesful!", "success"));
 
         setTimeout(() => {
           dispatch(mashineToDeposited(possibleMashineCoins));
@@ -44,12 +39,12 @@ const PayButton = () => {
 
       } else {
         dispatch(showMashinePanel(true));
-        displayMessage("There is no appropriate coins in mashine to give a change", "error");
+        dispatch(showSnackbar("There is no appropriate coins in mashine to give a change", "error"));
       }
 
     } else {
       dispatch(showMashinePanel(true));
-      displayMessage("Not enought money in mashine to to give change", "error");
+      dispatch(showSnackbar("Not enought money in mashine to to give change", "error"));
     }
 
   }

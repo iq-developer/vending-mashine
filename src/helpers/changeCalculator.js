@@ -28,7 +28,6 @@ const changeCalculator = (mashineCoins, depositedCoins, difference, isReturnRest
   });
 
   if (restInCoins) {
-    console.log('No appropriate coins in mashine to give a change' );
     return false;
   } else {
     return result.reverse();

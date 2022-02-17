@@ -1,5 +1,5 @@
 export default function reducer(state = {
-  message: "something happened",
+  message: "Please select some items to buy",
   severity: "info",
   show: true,
 }, action) {

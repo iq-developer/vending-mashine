@@ -40,7 +40,7 @@ const SingleCard = ({item}) => {
             sx={{
               textAlign: "center",
               backgroundColor: item.isSelected ? color("blue", 0.5) : color("white", 0.9),
-              // marginTop: "30px", // uncomment to display image part in item
+              marginTop: "30px", // comment to hide image part in item
               "&:hover": {
                 backgroundColor: color("white", 0.5),
                 cursor: "pointer"
