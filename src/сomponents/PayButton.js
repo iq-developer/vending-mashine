@@ -40,7 +40,7 @@ const PayButton = () => {
         console.log('possibleChange:', possibleChange);
         console.log('possibleMashineCoins:', possibleMashineCoins);
   
-        dispatch(mashineFromDeposited(depositedCoins));
+        //dispatch(mashineFromDeposited(depositedCoins));
         dispatch(depositedToMashine());
         dispatch(removeSelectedItems());
 

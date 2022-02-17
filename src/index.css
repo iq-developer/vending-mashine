@@ -7,22 +7,41 @@
 .main {
   background-color: "#ccc"
 }
-.button-up:after {
-  content: "";
-  background: #90EE90;
-  display: block;
-  position: absolute;
-  padding-top: 300%;
-  padding-left: 350%;
-  margin-left: -20px!important;
-  margin-top: -120%;
-  opacity: 0;
-  transition: all 0.8s
+
+/* Animation */
+
+.animated {
+  position: relative;
 }
 
-.button:active:after {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-  transition: 0s
+.animated:after {
+  position: absolute;
+  z-index: 1;
+  content: "";
+  background: #fff;
+  padding: 32px;
+  border-radius: 50px;
+  opacity: 0;
+  animation-duration: 0.5s;
+  animation-name: up;
+}
+
+.animated-down:after {
+  animation-name: down;
+}
+
+@keyframes up {
+  0% {opacity: 1;}
+  100% {
+    transform: translate(0, -150px);
+    opacity: 0;
+  }
+}
+
+@keyframes down {
+  0% {opacity: 1;}
+  100% {
+    transform: translate(0, 150px);
+    opacity: 0;
+  }
 }
