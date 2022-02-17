@@ -1,6 +1,10 @@
-const changeCalculator = (data, difference, isReturnRest = false) => {
+const changeCalculator = (mashineCoins, depositedCoins, difference, isReturnRest = false) => {
 
-  const reversedData = [...data].reverse();
+  const accesibleCoins = mashineCoins.map((item, index) => {
+    return { ...item, quantity: item.quantity + depositedCoins[index].quantity }
+  });
+
+  const reversedData = [...accesibleCoins].reverse();
 
   const convertToCoins = (value) => {
     return Math.round(value * 100);
@@ -25,6 +29,7 @@ const changeCalculator = (data, difference, isReturnRest = false) => {
 
   if (restInCoins) {
     console.log('No appropriate coins in mashine to give a change' );
+    return false;
   } else {
     return result.reverse();
   }

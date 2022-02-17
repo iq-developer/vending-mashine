@@ -6,9 +6,6 @@ import CustomizedSnackbars from "./CustomizedSnackbars"
 import { useState } from "react";
 import changeCalculator from "../helpers/changeCalculator"
 
-import defaultMoney from "../data/depositedMoney.json"
-let possibleChange = defaultMoney ? defaultMoney : [];
-
 const PayButton = () => {
 
   const {amounts, mashineCoins, depositedCoins} = useSelector(state => state);
@@ -29,39 +26,32 @@ const PayButton = () => {
     setOpenSnackbar(true);
   }
 
-
-
-  const giveChange = (depositedSum, selectedSum, mashineCoins, depositedCoins, difference) => {
-
-    const accesibleCoins = mashineCoins.map((item, index) => {
-      return { ...item, quantity: item.quantity + depositedCoins[index].quantity }
-    });
-
-    const possibleChange = changeCalculator(accesibleCoins, difference, true);
-
-    const possibleMashineCoins = changeCalculator(accesibleCoins, difference);
-
-    console.log('possibleChange:', possibleChange);
-
-    console.log('possibleMashineCoins:', possibleMashineCoins);
-
-  }
-
-  
-
   const handlerPayClick = (id) => {
 
     const difference = depositedSum - selectedSum;
 
     if (amounts.mashineSum > difference) {
 
-      giveChange(depositedSum, selectedSum, mashineCoins, depositedCoins, difference);
+      const possibleChange = changeCalculator(mashineCoins, depositedCoins, difference, true);
 
-      //dispatch(mashineFromDeposited(depositedCoins));
-      //dispatch(depositedToMashine());
-      //dispatch(removeSelectedItems());
+      if (possibleChange) {
+        
+        const possibleMashineCoins = changeCalculator(mashineCoins, depositedCoins, difference);
+        console.log('possibleChange:', possibleChange);
+        console.log('possibleMashineCoins:', possibleMashineCoins);
+  
+        dispatch(mashineFromDeposited(depositedCoins));
+        dispatch(depositedToMashine());
+        dispatch(removeSelectedItems());
+
+        displayMessage("Succesful payment", "success");
+
+      } else {
+        displayMessage("No appropriate coins in mashine to give a change");
+      }
+
     } else {
-      displayMessage("Not enought money in mashine to to give change from payment",);
+      displayMessage("Not enought money in mashine to to give change from payment");
     }
 
   }
