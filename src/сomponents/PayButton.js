@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import { ArrowCircleUp } from "@mui/icons-material"
 import { useSelector, useDispatch } from "react-redux";
-import { depositedToMashine, mashineFromDeposited, removeSelectedItems } from "../store/actions";
+import { depositedToMashine, mashineFromDeposited, removeSelectedItems, mashineToDeposited, depositedFromMashine } from "../store/actions";
 import CustomizedSnackbars from "./CustomizedSnackbars"
 import { useState } from "react";
 import changeCalculator from "../helpers/changeCalculator"
@@ -42,19 +42,20 @@ const PayButton = () => {
   
         dispatch(mashineFromDeposited(depositedCoins));
         dispatch(depositedToMashine());
-        displayMessage("Succesful payment", "success");
-
+        dispatch(removeSelectedItems());
+        displayMessage("Payment succesful!", "success");
 
         setTimeout(() => {
-          dispatch(removeSelectedItems());
-        }, 1000)
+          dispatch(mashineToDeposited(possibleMashineCoins));
+          dispatch(depositedFromMashine(possibleChange));
+        }, 1000);
 
       } else {
-        displayMessage("No appropriate coins in mashine to give a change");
+        displayMessage("There is no appropriate coins in mashine to give a change");
       }
 
     } else {
-      displayMessage("Not enought money in mashine to to give change from payment");
+      displayMessage("Not enought money in mashine to to give change");
     }
 
   }

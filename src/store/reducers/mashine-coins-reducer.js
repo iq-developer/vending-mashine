@@ -11,6 +11,9 @@ export default function reducer(state = defaultState, action) {
           return { ...item, quantity: item.quantity + action.payload.data[index].quantity }
       });
 
+    case 'MASHINE_TO_DEPOSITED':
+      return action.payload.data;
+
     default:
       return state;
   }

@@ -38,6 +38,16 @@ export const depositedToMashine = () => ({
   type: "DEPOSITED_TO_MASHINE"
 });
 
+export const mashineToDeposited = data => ({
+  type: "MASHINE_TO_DEPOSITED",
+  payload: { data }
+});
+
+export const depositedFromMashine = data => ({
+  type: "DEPOSITED_FROM_MASHINE",
+  payload: { data }
+});
+
 
 
 export const updateUserSum = sum => ({

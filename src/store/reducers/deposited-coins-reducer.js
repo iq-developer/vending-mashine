@@ -25,6 +25,9 @@ export default function reducer(state = defaultState, action) {
           return { ...item, quantity: 0 }
       });
 
+    case 'DEPOSITED_FROM_MASHINE':
+      return action.payload.data;
+
     default:
       return state;
   }
