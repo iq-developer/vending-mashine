@@ -20,7 +20,7 @@ export default function reducer(state = itemsWithQuantity, action) {
     case "REMOVE_SELECTED_ITEMS":
       return state.map(item => {
         if (item.isSelected)
-          return { ...item, isSold: true }
+          return { ...item, isSold: true, isSelected: false }
         return item;
       });
 
