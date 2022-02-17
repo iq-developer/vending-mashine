@@ -1,3 +1,5 @@
+/* items */
+
 export const toggleItem = id => ({
   type: "TOGGLE_ITEM",
   payload: { id }
@@ -8,6 +10,7 @@ export const removeSelectedItems = id => ({
   payload: { id }
 });
 
+/* coins */
 
 export const userToDeposited = id => ({
   type: "USER_TO_DEPOSITED",
@@ -48,7 +51,7 @@ export const depositedFromMashine = data => ({
   payload: { data }
 });
 
-
+/* update Sum */
 
 export const updateUserSum = sum => ({
   type: "UPDATE_USER_SUM",
@@ -68,4 +71,21 @@ export const updateSelectedSum = sum => ({
 export const updateMashineSum = sum => ({
   type: "UPDATE_MASHINE_SUM",
   payload: { sum }
+});
+
+/* show/hide Panel */
+
+export const showUserPanel = boolean => ({
+  type: "SHOW_USER_PANEL",
+  payload: { boolean }
+});
+
+export const showMashinePanel = boolean => ({
+  type: "SHOW_MASHINE_PANEL",
+  payload: { boolean }
+});
+
+export const showDepositedPanel = boolean => ({
+  type: "SHOW_DEPOSITED_PANEL",
+  payload: { boolean }
 });

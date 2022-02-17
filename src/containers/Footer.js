@@ -12,6 +12,7 @@ const Footer = () => {
   const userCoins = useSelector(state => state.userCoins);
   const depositedCoins = useSelector(state => state.depositedCoins);
   const mashineCoins = useSelector(state => state.mashineCoins);
+  const options = useSelector(state => state.options);
 
   const dispatch = useDispatch();
 
@@ -22,6 +23,8 @@ const Footer = () => {
     dispatch(updateDepositedSum(depositedSum));
     dispatch(updateMashineSum(mashineSum));
   })
+
+  console.log('options.showMashinePanel:', options.showMashinePanel);
 
   return (
     <Box
@@ -41,6 +44,7 @@ const Footer = () => {
         data={mashineCoins}
         quantity={quantity(mashineCoins)}
         sum={sum(mashineCoins)}
+        show={options.showMashinePanel}
       />
 
       <Panel
@@ -51,6 +55,7 @@ const Footer = () => {
         data={depositedCoins}
         quantity={quantity(depositedCoins)}
         sum={depositedSum}
+        show={options.showDepositedPanel}
       />
       <Panel
         title="Your money"
@@ -60,6 +65,7 @@ const Footer = () => {
         data={userCoins}
         quantity={quantity(userCoins)}
         sum={sum(userCoins)}
+        show={options.showUserPanel}
       />
     </Box>
   );

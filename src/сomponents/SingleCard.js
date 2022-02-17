@@ -1,16 +1,27 @@
 import { Card, CardActionArea, CardContent, Grid, Slide } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { toggleItem } from "../store/actions";
+import { toggleItem, showUserPanel, showMashinePanel } from "../store/actions";
 import color from "../helpers/color";
 import CardTypo from "../containers/CardTypo";
-import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const SingleCard = ({item}) => {
+
+  const {options} = useSelector(state => state);
 
   const dispatch = useDispatch();
 
   const handleCardClick = (id) => {
+
     dispatch(toggleItem(id));
+
+    if (!options.showUserPanel) {
+      dispatch(showUserPanel(true));
+    }
+
+    if (options.showMashinePanel){
+      dispatch(showMashinePanel(false));
+    }
   }
 
   return (

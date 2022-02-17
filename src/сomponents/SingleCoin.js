@@ -1,9 +1,12 @@
 import { Button, Badge, Box } from "@mui/material"
 import { useDispatch } from "react-redux";
-import { userToDeposited, depositedFromUser, depositedToUser, userFromDeposited }  from "../store/actions";
+import { userToDeposited, depositedFromUser, depositedToUser, userFromDeposited, showDepositedPanel, showMashinePanel }  from "../store/actions";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const SingleCoin = ({id, quantity, name, title}) => {
+
+  const {options} = useSelector(state => state);
 
   const dispatch = useDispatch();
 
@@ -11,20 +14,28 @@ const SingleCoin = ({id, quantity, name, title}) => {
 
   const handleCoinClick = (id) => {
     if (title === "Your money") {
-      dispatch(userToDeposited(id));
-      dispatch(depositedFromUser(id));
 
+      if (!options.showDepositedPanel){
+        dispatch(showDepositedPanel(true));
+      }
+      setTimeout(() => dispatch(userToDeposited(id)), 100);
+      setTimeout(() => dispatch(depositedFromUser(id)), 100);
       setAnimated("animated");
       setTimeout(() => setAnimated(""), 500);
-
+      
     } else if (title === "Deposited"){
-      dispatch(depositedToUser(id));
-      dispatch(userFromDeposited(id));
 
+      setTimeout(() => dispatch(depositedToUser(id)), 100);
+      setTimeout(() => dispatch(userFromDeposited(id)), 100);
       setAnimated("animated animated-down");
       setTimeout(() => setAnimated(""), 500);
+
     } else {
       console.log("you can't move mashine money");
+    }
+
+    if (options.showMashinePanel){
+      dispatch(showMashinePanel(false));
     }
 
   }

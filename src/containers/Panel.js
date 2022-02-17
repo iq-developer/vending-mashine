@@ -2,12 +2,13 @@ import { Toolbar, Container } from "@mui/material";
 import Coins from "./Coins";
 import TopToolbar from "../сomponents/TopToolbar";
 
-
-const Panel = ({title, itemName, topBgColor, bottomBgColor, data, quantity, sum}) => {
+const Panel = ({title, itemName, topBgColor, bottomBgColor, data, quantity, sum, show}) => {
 
   return (
     <>
-      <TopToolbar
+      { show 
+        ? <>
+        <TopToolbar
         title={title}
         itemName={itemName}
         topBgColor={topBgColor}
@@ -30,7 +31,13 @@ const Panel = ({title, itemName, topBgColor, bottomBgColor, data, quantity, sum}
           />
         </Container>
       </Toolbar>
+        </>
+        : ""
+      }
+      
+
     </>
+
   );
 }
 
