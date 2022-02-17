@@ -1,17 +1,23 @@
-import { Card, CardActionArea, CardContent, Grid } from "@mui/material";
+import { Card, CardActionArea, CardContent, Grid, Slide } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { toggleItem } from "../store/actions";
 import color from "../helpers/color";
 import CardTypo from "../containers/CardTypo";
+import { useState } from "react";
 
 const SingleCard = ({item}) => {
 
   const dispatch = useDispatch();
 
+  const handleCardClick = (id) => {
+    dispatch(toggleItem(id));
+  }
+
   return (
     <Grid item key={item.id} xs={6} sm={4} md={3} lg={2}>
 
-      <CardActionArea onClick={() => dispatch(toggleItem(item.id))}>
+    <Slide direction="down" in={!item.isSold} mountOnEnter unmountOnExit>
+      <CardActionArea onClick={() => handleCardClick(item.id)}>
         <Card
           sx={{
             backgroundImage: `url(${item.img})`,
@@ -44,8 +50,11 @@ const SingleCard = ({item}) => {
             />
             
           </CardContent>
-          </Card>
-        </CardActionArea>
+        </Card>
+      </CardActionArea>
+    </Slide>
+
+
 
       </Grid>
   );

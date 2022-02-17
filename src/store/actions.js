@@ -3,8 +3,9 @@ export const toggleItem = id => ({
   payload: { id }
 });
 
-export const removeSelectedItems = () => ({
-  type: "REMOVE_SELECTED_ITEMS"
+export const removeSelectedItems = id => ({
+  type: "REMOVE_SELECTED_ITEMS",
+  payload: { id }
 });
 
 

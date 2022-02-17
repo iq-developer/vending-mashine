@@ -18,7 +18,11 @@ export default function reducer(state = itemsWithQuantity, action) {
       });
 
     case "REMOVE_SELECTED_ITEMS":
-      return state.filter(item => !item.isSelected);
+      return state.map(item => {
+        if (item.isSelected)
+          return { ...item, isSold: true }
+        return item;
+      });
 
     default:
       return state;
