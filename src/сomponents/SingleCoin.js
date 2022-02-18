@@ -1,6 +1,6 @@
 import { Button, Badge, Box } from "@mui/material"
 import { useDispatch } from "react-redux";
-import { userToDeposited, depositedFromUser, showSnackbar }  from "../store/actions";
+import { userToDeposited, depositedFromUser, showSnackbar, userFromDeposited, depositedToUser }  from "../store/actions";
 import { useState } from "react";
 import isZero from "../helpers/isZero";
 
@@ -9,10 +9,15 @@ const SingleCoin = ({id, quantity, name, panelId}) => {
   const dispatch = useDispatch();
   const [animated, setAnimated] = useState("");
 
-  const dispatchAnimatedCoins = (id, isDown) => {
-    dispatch(userToDeposited(id));
-    dispatch(depositedFromUser(id));
-    setAnimated(`animated ${isDown ? "animated-down" : ""}`);
+  const dispatchAnimatedCoins = (id, moneyback) => {
+    if (moneyback) {
+      dispatch(depositedToUser(id));
+      dispatch(userFromDeposited(id));
+    } else {
+      dispatch(userToDeposited(id));
+      dispatch(depositedFromUser(id));
+    }
+    setAnimated(`animated ${moneyback ? "animated-down" : ""}`);
     setTimeout(() => setAnimated(""), 500);
   }
 
