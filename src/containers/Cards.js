@@ -9,7 +9,7 @@ const Cards = () => {
   return (
     <main className="main">
       <Container maxWidth="lg">
-        <Grid container spacing={4} pt={10} pb={2}>
+        <Grid container spacing={4} pt={12} pb={4}>
             {items.map((item, index) => (
               <SingleCard item={item} key={index} /> 
             ))}   

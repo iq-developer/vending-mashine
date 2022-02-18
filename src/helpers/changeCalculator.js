@@ -31,6 +31,8 @@ const changeCalculator = (mashineCoins, depositedCoins, difference, isReturnRest
 
   if (isZero(restInCoins)) return result.reverse();
 
+  return false;
+
 }
 
 export default changeCalculator;

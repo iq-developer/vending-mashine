@@ -4,13 +4,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { depositedToMashine, mashineFromDeposited, removeSelectedItems, mashineToDeposited, depositedFromMashine, showMashinePanel, showSnackbar } from "../store/actions";
 import changeCalculator from "../helpers/changeCalculator";
 
+
 const PayButton = () => {
 
   const {amounts, mashineCoins, depositedCoins} = useSelector(state => state);
 
-  const {depositedSum, selectedSum} = amounts;
+  const {depositedSum, selectedSum, mashineSum} = amounts;
 
-  const disabled = amounts.selectedSum ? amounts.selectedSum > amounts.depositedSum : true;
+  const disabled = selectedSum ? selectedSum > depositedSum : true;
 
   const dispatch = useDispatch();
 
@@ -19,7 +20,7 @@ const PayButton = () => {
 
     const difference = depositedSum - selectedSum;
 
-    if (amounts.mashineSum > difference) {
+    if (mashineSum > difference) {
 
       const possibleChange = changeCalculator(mashineCoins, depositedCoins, difference, true);
 
@@ -32,6 +33,7 @@ const PayButton = () => {
         dispatch(removeSelectedItems());
         dispatch(showSnackbar("Payment succesful!", "success"));
 
+        /* return change */
         setTimeout(() => {
           dispatch(mashineToDeposited(possibleMashineCoins));
           dispatch(depositedFromMashine(possibleChange));
@@ -41,6 +43,8 @@ const PayButton = () => {
         dispatch(showMashinePanel(true));
         dispatch(showSnackbar("There is no appropriate coins in mashine to give a change", "error"));
       }
+
+    } else if (difference = 0) {
 
     } else {
       dispatch(showMashinePanel(true));
