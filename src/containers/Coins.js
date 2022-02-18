@@ -10,6 +10,7 @@ const Coins = ({data, panelId}) => {
         name={item.name}
         quantity={item.quantity}
         panelId={panelId}
+        key={item.id}
       />
 
     )})

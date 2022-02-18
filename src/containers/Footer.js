@@ -4,21 +4,24 @@ import { useSelector } from "react-redux";
 import quantity from "../helpers/quantity";
 import sum from "../helpers/sum";
 import { useDispatch } from "react-redux";
-import { updateDepositedSum, updateMashineSum, showDepositedPanel } from "../store/actions";
+import { updateDepositedSum, updateMashineSum, showDepositedPanel, showUserPanel } from "../store/actions";
 import { useEffect } from "react";
 
 const Footer = () => {
 
-  const { userCoins, depositedCoins, mashineCoins, options } = useSelector(state => state);
+  const { userCoins, depositedCoins, mashineCoins, options, amounts } = useSelector(state => state);
   const dispatch = useDispatch();
+  const userSum = sum(userCoins);
   const depositedSum = sum(depositedCoins);
   const mashineSum = sum(mashineCoins);
+  const {selectedSum} = amounts;
 
   useEffect(()=>{
     dispatch(updateDepositedSum(depositedSum));
     dispatch(updateMashineSum(mashineSum));
     if (depositedSum) dispatch(showDepositedPanel(true));
-  }, [depositedSum, mashineSum])
+    if (selectedSum) dispatch(showUserPanel(true));
+  }, [userSum, depositedSum, mashineSum, selectedSum])
 
   return (
     <Box
@@ -37,7 +40,7 @@ const Footer = () => {
         bottomBgColor="secondary.light"
         data={mashineCoins}
         quantity={quantity(mashineCoins)}
-        sum={sum(mashineCoins)}
+        sum={mashineSum}
         show={options.showMashinePanel}
         panelId="3"
       />
@@ -60,7 +63,7 @@ const Footer = () => {
         bottomBgColor="primary.light"
         data={userCoins}
         quantity={quantity(userCoins)}
-        sum={sum(userCoins)}
+        sum={userSum}
         show={options.showUserPanel}
         panelId="1"
       />

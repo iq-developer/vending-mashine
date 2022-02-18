@@ -36,7 +36,6 @@ const SingleCoin = ({id, quantity, name, panelId}) => {
   return (
     <Box
       margin="20px 7px"
-      key={id}
       sx={{
         float: "left"
       }}

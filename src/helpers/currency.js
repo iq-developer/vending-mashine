@@ -1,6 +1,6 @@
-import options from "./options";
+import settings from "./settings";
 
-const { currencyName } = options;
+const { currencyName } = settings;
 
 const currency = (amount, hideSymbol = false) => {
 

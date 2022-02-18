@@ -1,27 +1,17 @@
 import { Card, CardActionArea, CardContent, Grid, Slide } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { toggleItem, showUserPanel, showMashinePanel } from "../store/actions";
+import { toggleItem } from "../store/actions";
 import color from "../helpers/color";
 import CardTypo from "../containers/CardTypo";
-import { useSelector } from "react-redux";
+import settings from "../helpers/settings";
 
 const SingleCard = ({item}) => {
 
-  const {options} = useSelector(state => state);
-
   const dispatch = useDispatch();
+  const {showImagePart} = settings;
 
   const handleCardClick = (id) => {
-
     dispatch(toggleItem(id));
-
-    if (!options.showUserPanel) {
-      dispatch(showUserPanel(true));
-    }
-
-    if (options.showMashinePanel){
-      dispatch(showMashinePanel(false));
-    }
   }
 
   return (
@@ -40,7 +30,7 @@ const SingleCard = ({item}) => {
             sx={{
               textAlign: "center",
               backgroundColor: item.isSelected ? color("blue", 0.5) : color("white", 0.9),
-              // marginTop: "30px", // comment to hide image part in item
+              marginTop: showImagePart ? "30px" : "0",
               "&:hover": {
                 backgroundColor: color("white", 0.5),
                 cursor: "pointer"
