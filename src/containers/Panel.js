@@ -2,7 +2,7 @@ import { Toolbar, Container } from "@mui/material";
 import Coins from "./Coins";
 import TopToolbar from "../сomponents/TopToolbar";
 
-const Panel = ({title, itemName, topBgColor, bottomBgColor, data, quantity, sum, show, id}) => {
+const Panel = ({title, itemName, topBgColor, bottomBgColor, data, quantity, sum, show, panelId}) => {
 
   return (
     <>
@@ -15,7 +15,7 @@ const Panel = ({title, itemName, topBgColor, bottomBgColor, data, quantity, sum,
         data={data}
         quantity={quantity}
         sum={sum}
-        id={id}
+        panelId={panelId}
       />
 
       <Toolbar sx={{
@@ -26,7 +26,7 @@ const Panel = ({title, itemName, topBgColor, bottomBgColor, data, quantity, sum,
         >
           <Coins
             data={data}
-            title={title}
+            panelId={panelId}
           />
         </Container>
       </Toolbar>

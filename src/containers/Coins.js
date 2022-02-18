@@ -1,6 +1,6 @@
 import SingleCoin from "../сomponents/SingleCoin";
 
-const Coins = ({data, title}) => {
+const Coins = ({data, panelId}) => {
 
   return (
     data.map(item => {
@@ -9,8 +9,7 @@ const Coins = ({data, title}) => {
         id={item.id}
         name={item.name}
         quantity={item.quantity}
-        title={title}
-        key={item.id}
+        panelId={panelId}
       />
 
     )})

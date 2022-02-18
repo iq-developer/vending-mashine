@@ -3,8 +3,9 @@ import { useDispatch } from "react-redux";
 import { userToDeposited, depositedFromUser, depositedToUser, userFromDeposited, showDepositedPanel, showMashinePanel, showSnackbar }  from "../store/actions";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import isZero from "../helpers/iszero";
 
-const SingleCoin = ({id, quantity, name, title}) => {
+const SingleCoin = ({id, quantity, name, panelId}) => {
 
   const {options} = useSelector(state => state);
 
@@ -13,7 +14,7 @@ const SingleCoin = ({id, quantity, name, title}) => {
   const [animated, setAnimated] = useState("");
 
   const handleCoinClick = (id) => {
-    if (title === "Your money") {
+    if (panelId === "1") {
 
       if (!options.showDepositedPanel){
         dispatch(showDepositedPanel(true));
@@ -23,7 +24,7 @@ const SingleCoin = ({id, quantity, name, title}) => {
       setAnimated("animated");
       setTimeout(() => setAnimated(""), 500);
       
-    } else if (title === "Deposited"){
+    } else if (panelId === "2"){
 
       setTimeout(() => dispatch(depositedToUser(id)), 100);
       setTimeout(() => dispatch(userFromDeposited(id)), 100);
@@ -39,6 +40,7 @@ const SingleCoin = ({id, quantity, name, title}) => {
     }
 
   }
+
       return (
         <Box
           margin="20px 7px"
@@ -57,7 +59,7 @@ const SingleCoin = ({id, quantity, name, title}) => {
               variant="contained"
               color="inherit"
               size="medium"
-              disabled={!quantity}
+              disabled={isZero(quantity)}
               sx={{
                 borderRadius: "40px",
                 padding: "20px",
