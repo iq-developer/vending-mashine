@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { userToDeposited, depositedFromUser, depositedToUser, userFromDeposited, showDepositedPanel, showMashinePanel, showSnackbar }  from "../store/actions";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import isZero from "../helpers/iszero";
+import isZero from "../helpers/isZero";
 
 const SingleCoin = ({id, quantity, name, panelId}) => {
 

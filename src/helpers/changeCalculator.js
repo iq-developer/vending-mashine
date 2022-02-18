@@ -1,3 +1,5 @@
+import isZero from "./isZero";
+
 const changeCalculator = (mashineCoins, depositedCoins, difference, isReturnRest = false) => {
 
   const accesibleCoins = mashineCoins.map((item, index) => {
@@ -27,11 +29,7 @@ const changeCalculator = (mashineCoins, depositedCoins, difference, isReturnRest
 
   });
 
-  if (restInCoins) {
-    return false;
-  } else {
-    return result.reverse();
-  }
+  if (isZero(restInCoins)) return result.reverse();
 
 }
 
