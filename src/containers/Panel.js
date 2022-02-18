@@ -2,6 +2,8 @@ import { Toolbar, Container } from "@mui/material";
 import Coins from "./Coins";
 import TopToolbar from "../сomponents/TopToolbar";
 
+
+
 const Panel = ({title, itemName, topBgColor, bottomBgColor, data, quantity, sum, show, panelId}) => {
 
   return (
