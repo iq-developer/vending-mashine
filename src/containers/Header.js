@@ -12,7 +12,6 @@ const Header = () => {
   const {items} = useSelector(state => state);
 
   const selectedItems = items.filter(item => item.isSelected);
-  
 
   const dispatch = useDispatch();
 
@@ -43,7 +42,7 @@ const Header = () => {
           margin: "0 auto",
           fontSize: "20px"
         }}>
-          {items.find(item => item.isSelected)
+          { selectedItems.length
           ? <TopToolbar
               title="Selected"
               itemName="items"
