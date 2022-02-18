@@ -22,7 +22,7 @@ const Footer = () => {
   useEffect(()=>{
     dispatch(updateDepositedSum(depositedSum));
     dispatch(updateMashineSum(mashineSum));
-  })
+  }, [depositedSum, mashineSum])
 
   return (
     <Box

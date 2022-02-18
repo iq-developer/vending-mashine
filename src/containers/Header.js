@@ -9,9 +9,10 @@ import { updateSelectedSum } from "../store/actions";
 
 const Header = () => {
 
-  const items = useSelector(state => state.items);
+  const {items} = useSelector(state => state);
 
   const selectedItems = items.filter(item => item.isSelected);
+  
 
   const dispatch = useDispatch();
 
@@ -19,7 +20,7 @@ const Header = () => {
 
   useEffect(()=>{
     dispatch(updateSelectedSum(selectedSum));
-  })
+  }, [selectedSum])
 
   return (
     <Box
