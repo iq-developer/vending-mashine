@@ -9,13 +9,8 @@ import { useEffect } from "react";
 
 const Footer = () => {
 
-  const userCoins = useSelector(state => state.userCoins);
-  const depositedCoins = useSelector(state => state.depositedCoins);
-  const mashineCoins = useSelector(state => state.mashineCoins);
-  const options = useSelector(state => state.options);
-
+  const { userCoins, depositedCoins, mashineCoins, options }  = useSelector(state => state);
   const dispatch = useDispatch();
-
   const depositedSum = sum(depositedCoins);
   const mashineSum = sum(mashineCoins);
 
