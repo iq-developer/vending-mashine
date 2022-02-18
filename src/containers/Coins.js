@@ -4,14 +4,16 @@ const Coins = ({data, title}) => {
 
   return (
     data.map(item => {
-      return <SingleCoin
+      return (
+      <SingleCoin
         id={item.id}
         name={item.name}
         quantity={item.quantity}
         title={title}
         key={item.id}
       />
-    })
+
+    )})
   )
 
 }

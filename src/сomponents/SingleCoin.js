@@ -41,8 +41,11 @@ const SingleCoin = ({id, quantity, name, title}) => {
   }
       return (
         <Box
-          margin="20px 10px"
+          margin="20px 7px"
           key={id}
+          sx={{
+            float: "left"
+          }}
           >
           <Badge 
             badgeContent={quantity}

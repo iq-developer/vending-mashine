@@ -20,11 +20,9 @@ const Panel = ({title, itemName, topBgColor, bottomBgColor, data, quantity, sum,
       <Toolbar sx={{
         backgroundColor: bottomBgColor,
       }}>
-        <Container sx={{
-          textAlign: "center",
-          display: "flex",
-          justifyContent: "center",
-        }}>
+        <Container
+          maxWidth="sm"
+        >
           <Coins
             data={data}
             title={title}
