@@ -30,6 +30,7 @@ const Header = () => {
       bottom: "auto",
       left: 0,
       right: 0,
+      zIndex: 1,
     }}>
       <Toolbar sx={{
         backgroundColor: "primary.main",

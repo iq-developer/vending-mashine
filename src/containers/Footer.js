@@ -28,8 +28,8 @@ const Footer = () => {
     <Box
       sx={{
       color: "#fff",
-      position: 'fixed',
-      top: 'auto',
+      position: "sticky",
+      top: "auto",
       bottom: 0,
       left: 0,
       right: 0,

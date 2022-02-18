@@ -25,7 +25,7 @@ const SingleCard = ({item}) => {
   }
 
   return (
-    <Grid item key={item.id} xs={6} sm={4} md={3} lg={2}>
+    <Grid item key={item.id} xs={6} sm={4} md={3} lg={3}>
 
     <Slide direction="down" in={!item.isSold} mountOnEnter unmountOnExit>
       <CardActionArea onClick={() => handleCardClick(item.id)}>
