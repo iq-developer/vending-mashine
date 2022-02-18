@@ -2,7 +2,7 @@ import { Box, Toolbar, Container } from "@mui/material";
 import PayButton from "./PayButton";
 import currency from "../helpers/currency"
 
-const TopToolbar = ({title, itemName, topBgColor, quantity, sum}) => {
+const TopToolbar = ({title, itemName, topBgColor, quantity, sum, id}) => {
  
   return (
     <Toolbar sx={{
@@ -28,7 +28,7 @@ const TopToolbar = ({title, itemName, topBgColor, quantity, sum}) => {
           {currency(sum)}
         </Box>
 
-        {title === "Deposited" ? <PayButton /> : ""}
+        {id === "2" ? <PayButton /> : ""}
         
       </Box>
     </Container>

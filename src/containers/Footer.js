@@ -43,6 +43,7 @@ const Footer = () => {
         quantity={quantity(mashineCoins)}
         sum={sum(mashineCoins)}
         show={options.showMashinePanel}
+        id="1"
       />
 
       <Panel
@@ -54,6 +55,7 @@ const Footer = () => {
         quantity={quantity(depositedCoins)}
         sum={depositedSum}
         show={options.showDepositedPanel}
+        id="2"
       />
       <Panel
         title="Your money"
@@ -64,6 +66,7 @@ const Footer = () => {
         quantity={quantity(userCoins)}
         sum={sum(userCoins)}
         show={options.showUserPanel}
+        id="3"
       />
     </Box>
   );
