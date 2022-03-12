@@ -1,6 +1,6 @@
 import { Card, CardActionArea, CardContent, Grid, Slide } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { toggleItem } from "../store/actions";
+import { toggleItem, hideSnackbar } from "../store/actions";
 import color from "../helpers/color";
 import CardTypo from "../containers/CardTypo";
 import settings from "../helpers/settings";
@@ -12,6 +12,7 @@ const SingleCard = ({item}) => {
 
   const handleCardClick = (id) => {
     dispatch(toggleItem(id));
+    dispatch(hideSnackbar());
   }
 
   return (
@@ -49,7 +50,7 @@ const SingleCard = ({item}) => {
               fontWeight: "700"
             }}
             />
-            
+
           </CardContent>
         </Card>
       </CardActionArea>
