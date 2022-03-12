@@ -8,7 +8,7 @@ const Panel = ({title, itemName, topBgColor, bottomBgColor, data, quantity, sum,
 
   return (
     <>
-      { show 
+      { show
         ? <>
         <TopToolbar
         title={title}
@@ -25,6 +25,10 @@ const Panel = ({title, itemName, topBgColor, bottomBgColor, data, quantity, sum,
       }}>
         <Container
           maxWidth="sm"
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+          }}
         >
           <Coins
             data={data}
@@ -35,7 +39,7 @@ const Panel = ({title, itemName, topBgColor, bottomBgColor, data, quantity, sum,
         </>
         : ""
       }
-      
+
 
     </>
 

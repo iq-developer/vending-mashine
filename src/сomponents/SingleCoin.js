@@ -31,7 +31,7 @@ const SingleCoin = ({id, quantity, name, panelId}) => {
         break;
       case "3":
         dispatch(showSnackbar("You can't operate mashine money. Them are for preview only", "warning"));
-        break;    
+        break;
       default:
         dispatch(showSnackbar("System error: panel id missed", "error"));
         break;
@@ -41,11 +41,8 @@ const SingleCoin = ({id, quantity, name, panelId}) => {
   return (
     <Box
       margin="20px 7px"
-      sx={{
-        float: "left"
-      }}
       >
-      <Badge 
+      <Badge
         badgeContent={quantity}
         color="primary"
       >
@@ -58,8 +55,18 @@ const SingleCoin = ({id, quantity, name, panelId}) => {
           disabled={isZero(quantity)}
           sx={{
             borderRadius: "40px",
-            padding: "20px",
-            color: "#000"
+
+            color: "#000",
+            padding: {
+              xs: "4px 8px",
+              sm: "12px",
+              md: "20px",
+            },
+            minWidth: {
+              xs: "16px",
+              sm: "48px",
+              md: "64px",
+            },
           }}
         >
           {name}
