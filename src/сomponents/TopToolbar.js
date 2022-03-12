@@ -3,17 +3,19 @@ import PayButton from "./PayButton";
 import currency from "../helpers/currency"
 
 const TopToolbar = ({title, itemName, topBgColor, quantity, sum, panelId}) => {
- 
+
   return (
     <Toolbar sx={{
       backgroundColor: topBgColor,
     }}>
-    <Container>
+    <Container sx={{
+      padding: 0
+    }}>
       <Box sx={{
         display: "flex",
         justifyContent: "center",
         margin: "0 auto",
-        fontSize: "20px"
+        fontSize: "20px",
       }}>
 
         <Box p={1}>
@@ -21,7 +23,7 @@ const TopToolbar = ({title, itemName, topBgColor, quantity, sum, panelId}) => {
         </Box>
 
         <Box p={1}>
-          {quantity} {itemName}
+          {quantity}&nbsp;{itemName}
         </Box>
 
         <Box p={1} pr={2}>
@@ -29,7 +31,7 @@ const TopToolbar = ({title, itemName, topBgColor, quantity, sum, panelId}) => {
         </Box>
 
         {panelId === "2" ? <PayButton /> : ""}
-        
+
       </Box>
     </Container>
     </Toolbar>
