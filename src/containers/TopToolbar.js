@@ -1,8 +1,10 @@
 import { Box, Toolbar, Container } from "@mui/material";
-import PayButton from "./PayButton";
+import PayButton from "../сomponents/PayButton";
 import currency from "../helpers/currency"
 
 const TopToolbar = ({title, itemName, topBgColor, quantity, sum, panelId}) => {
+
+
 
   return (
     <Toolbar sx={{
@@ -23,7 +25,7 @@ const TopToolbar = ({title, itemName, topBgColor, quantity, sum, panelId}) => {
         </Box>
 
         <Box p={1}>
-          {quantity}&nbsp;{itemName}
+          {quantity}&nbsp;{itemName}{quantity == 1 ? "" : "s"}
         </Box>
 
         <Box p={1} pr={2}>
