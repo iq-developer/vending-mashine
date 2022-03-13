@@ -18,7 +18,7 @@ const Footer = ( {state, props} ) => {
     }}>
       <Panel
         title="Mashine"
-        itemName="coins"
+        itemName="coin"
         topBgColor="secondary.main"
         bottomBgColor="secondary.light"
         data={mashineCoins}
@@ -30,7 +30,7 @@ const Footer = ( {state, props} ) => {
 
       <Panel
         title="Deposited"
-        itemName="coins"
+        itemName="coin"
         topBgColor="success.main"
         bottomBgColor="success.light"
         data={depositedCoins}
@@ -41,7 +41,7 @@ const Footer = ( {state, props} ) => {
       />
       <Panel
         title="Your money"
-        itemName="coins"
+        itemName="coin"
         topBgColor="primary.dark"
         bottomBgColor="primary.light"
         data={userCoins}

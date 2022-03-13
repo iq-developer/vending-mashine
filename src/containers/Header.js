@@ -1,6 +1,6 @@
 import { Container, Toolbar, Box } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material"
-import TopToolbar from "../сomponents/TopToolbar";
+import TopToolbar from "./TopToolbar";
 
 const Header = ( {props} ) => {
 
@@ -30,7 +30,7 @@ const Header = ( {props} ) => {
           { selectedItems.length
           ? <TopToolbar
               title="Selected"
-              itemName="items"
+              itemName="item"
               data={items}
               quantity={selectedQuantity}
               sum={selectedSum}

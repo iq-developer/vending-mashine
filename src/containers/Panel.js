@@ -1,6 +1,6 @@
 import { Toolbar, Container } from "@mui/material";
 import Coins from "./Coins";
-import TopToolbar from "../сomponents/TopToolbar";
+import TopToolbar from "../containers/TopToolbar";
 
 
 
