@@ -8,37 +8,46 @@ import { useSelector } from "react-redux";
 import quantity from "./helpers/quantity";
 import sum from "./helpers/sum";
 import { useDispatch } from "react-redux";
-import { updateDepositedSum, updateMashineSum, showDepositedPanel, showUserPanel } from "./store/actions";
+import { updateDepositedSum, updateMashineSum, updateSelectedSum, showDepositedPanel, showUserPanel } from "./store/actions";
 import { useEffect } from "react";
 
 
 function App() {
 
   const state = useSelector(state => state);
-  const { userCoins, depositedCoins, mashineCoins, options, amounts } = state;
+  const { userCoins, depositedCoins, mashineCoins, items } = state;
   const dispatch = useDispatch();
+  const selectedItems = items.filter(item => item.isSelected);
 
   const userSum = sum(userCoins);
   const depositedSum = sum(depositedCoins);
   const mashineSum = sum(mashineCoins);
+  const selectedSum = sum(selectedItems);
 
   const userQuantity = quantity(userCoins);
   const depositedQuantity = quantity(depositedCoins);
   const mashineQuantity = quantity(mashineCoins);
+  const selectedQuantity = quantity(selectedItems);
 
-  const {selectedSum} = amounts;
 
   useEffect(()=>{
     dispatch(updateDepositedSum(depositedSum));
     dispatch(updateMashineSum(mashineSum));
-    if (depositedSum) dispatch(showDepositedPanel(true));
-    if (selectedSum) dispatch(showUserPanel(true));
+    if (depositedSum) {
+      dispatch(showDepositedPanel(true));
+    }
+    if (selectedSum) {
+      dispatch(showUserPanel(true));
+      dispatch(updateSelectedSum(selectedSum));
+    }
   }, [userSum, depositedSum, mashineSum, selectedSum])
 
 
   return (
     <>
-      <Header />
+      <Header
+        props={{selectedSum, selectedQuantity, selectedItems, items}}
+      />
       <Cards />
       <Footer
         state={state}

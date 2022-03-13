@@ -1,25 +1,10 @@
 import { Container, Toolbar, Box } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material"
 import TopToolbar from "../сomponents/TopToolbar";
-import { useSelector, useDispatch } from "react-redux";
-import quantity from "../helpers/quantity";
-import sum from "../helpers/sum";
-import { useEffect } from "react";
-import { updateSelectedSum } from "../store/actions";
 
-const Header = () => {
+const Header = ( {props} ) => {
 
-  const {items} = useSelector(state => state);
-
-  const selectedItems = items.filter(item => item.isSelected);
-
-  const dispatch = useDispatch();
-
-  const selectedSum = sum(selectedItems);
-
-  useEffect(()=>{
-    dispatch(updateSelectedSum(selectedSum));
-  }, [selectedSum])
+  const {selectedSum, selectedQuantity, selectedItems, items} = props;
 
   return (
     <Box
@@ -47,7 +32,7 @@ const Header = () => {
               title="Selected"
               itemName="items"
               data={items}
-              quantity={quantity(selectedItems)}
+              quantity={selectedQuantity}
               sum={selectedSum}
           />
           : <>
@@ -64,4 +49,4 @@ const Header = () => {
   );
 }
 
-export default Header;  
+export default Header;
