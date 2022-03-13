@@ -1,27 +1,10 @@
 import { Box } from "@mui/material";
 import Panel from "./Panel";
-import { useSelector } from "react-redux";
-import quantity from "../helpers/quantity";
-import sum from "../helpers/sum";
-import { useDispatch } from "react-redux";
-import { updateDepositedSum, updateMashineSum, showDepositedPanel, showUserPanel } from "../store/actions";
-import { useEffect } from "react";
 
-const Footer = () => {
+const Footer = ( {state, props} ) => {
 
-  const { userCoins, depositedCoins, mashineCoins, options, amounts } = useSelector(state => state);
-  const dispatch = useDispatch();
-  const userSum = sum(userCoins);
-  const depositedSum = sum(depositedCoins);
-  const mashineSum = sum(mashineCoins);
-  const {selectedSum} = amounts;
-
-  useEffect(()=>{
-    dispatch(updateDepositedSum(depositedSum));
-    dispatch(updateMashineSum(mashineSum));
-    if (depositedSum) dispatch(showDepositedPanel(true));
-    if (selectedSum) dispatch(showUserPanel(true));
-  }, [userSum, depositedSum, mashineSum, selectedSum])
+  const { userCoins, depositedCoins, mashineCoins, options } = state;
+  const { userSum, userQuantity, depositedSum, depositedQuantity, mashineSum, mashineQuantity } = props;
 
   return (
     <Box
@@ -39,7 +22,7 @@ const Footer = () => {
         topBgColor="secondary.main"
         bottomBgColor="secondary.light"
         data={mashineCoins}
-        quantity={quantity(mashineCoins)}
+        quantity={mashineQuantity}
         sum={mashineSum}
         show={options.showMashinePanel}
         panelId="3"
@@ -51,7 +34,7 @@ const Footer = () => {
         topBgColor="success.main"
         bottomBgColor="success.light"
         data={depositedCoins}
-        quantity={quantity(depositedCoins)}
+        quantity={depositedQuantity}
         sum={depositedSum}
         show={options.showDepositedPanel}
         panelId="2"
@@ -62,7 +45,7 @@ const Footer = () => {
         topBgColor="primary.dark"
         bottomBgColor="primary.light"
         data={userCoins}
-        quantity={quantity(userCoins)}
+        quantity={userQuantity}
         sum={userSum}
         show={options.showUserPanel}
         panelId="1"
