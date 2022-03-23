@@ -25,7 +25,7 @@ const TopToolbar = ({title, itemName, topBgColor, quantity, sum, panelId}) => {
         </Box>
 
         <Box p={1}>
-          {quantity}&nbsp;{itemName}{quantity == 1 ? "" : "s"}
+          {quantity}&nbsp;{itemName}{quantity === 1 ? "" : "s"}
         </Box>
 
         <Box p={1} pr={2}>

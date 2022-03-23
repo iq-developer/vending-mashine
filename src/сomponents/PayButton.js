@@ -7,9 +7,9 @@ import changeCalculator from "../helpers/changeCalculator";
 
 const PayButton = () => {
 
-  const {amounts, mashineCoins, depositedCoins} = useSelector(state => state);
+  const { amounts, mashineCoins, depositedCoins } = useSelector(state => state);
 
-  const {depositedSum, selectedSum, mashineSum} = amounts;
+  const { depositedSum, selectedSum, mashineSum } = amounts;
 
   const disabled = selectedSum ? selectedSum > depositedSum : true;
 
@@ -25,9 +25,9 @@ const PayButton = () => {
       const possibleChange = changeCalculator(mashineCoins, depositedCoins, difference, true);
 
       if (possibleChange) {
-        
+
         const possibleMashineCoins = changeCalculator(mashineCoins, depositedCoins, difference);
-  
+
         dispatch(mashineFromDeposited(depositedCoins));
         dispatch(depositedToMashine());
         dispatch(removeSelectedItems());
@@ -44,7 +44,9 @@ const PayButton = () => {
         dispatch(showSnackbar("There is no appropriate coins in mashine to give a change", "error"));
       }
 
-    } else if (difference = 0) {
+    } else if (difference === 0) {
+
+      //TODO condition for dialog message
 
     } else {
       dispatch(showMashinePanel(true));
@@ -55,15 +57,15 @@ const PayButton = () => {
 
   return (
     <>
-    <Button
-      variant="contained"
-      color="secondary"
-      endIcon={<ArrowCircleUp />}
-      disabled={disabled}
-      onClick={() => handlerPayClick()}
-    >
-     Pay 
-    </Button>
+      <Button
+        variant="contained"
+        color="secondary"
+        endIcon={<ArrowCircleUp />}
+        disabled={disabled}
+        onClick={() => handlerPayClick()}
+      >
+        Pay
+      </Button>
     </>
   );
 }

@@ -40,7 +40,7 @@ function App() {
       dispatch(showUserPanel(true));
       dispatch(updateSelectedSum(selectedSum));
     }
-  }, [userSum, depositedSum, mashineSum, selectedSum])
+  }, [dispatch, userSum, depositedSum, mashineSum, selectedSum])
 
 
   return (

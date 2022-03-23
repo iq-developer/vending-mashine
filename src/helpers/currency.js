@@ -1,4 +1,4 @@
-import settings from "./settings";
+import { settings } from "./settings";
 
 const { currencyName } = settings;
 
@@ -8,7 +8,7 @@ const currency = (amount, hideSymbol = false) => {
 
   switch (currencyName) {
     case "Pound":
-      return hideSymbol ? `${amountFixed}` : `£${amountFixed}` ;
+      return hideSymbol ? `${amountFixed}` : `£${amountFixed}`;
     case "Dollar":
       return hideSymbol ? `${amountFixed}` : `$${amountFixed}`;
     default:
