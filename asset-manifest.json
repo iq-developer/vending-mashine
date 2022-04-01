@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/vending-mashine/static/css/main.a34e78dd.css",
+    "main.js": "/vending-mashine/static/js/main.4eee7618.js",
+    "index.html": "/vending-mashine/index.html",
+    "main.a34e78dd.css.map": "/vending-mashine/static/css/main.a34e78dd.css.map",
+    "main.4eee7618.js.map": "/vending-mashine/static/js/main.4eee7618.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a34e78dd.css",
+    "static/js/main.4eee7618.js"
+  ]
+}
