@@ -1,5 +1,5 @@
 export const settings = {
   currencyName: "Pound",
-  showImagePart: false,
+  showImagePart: true,
   showCurrencySymbol: false,
 }
